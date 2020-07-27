@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="dbc6d4d16f2b4890974c62b8146b8ed9" Name="Diagram1">
+        <EntityTypeShape EntityType="BCTOTA2PAModel.COUNTRIES" Width="1.5" PointX="2.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModel.CURRENCIES" Width="1.5" PointX="0.625" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModel.GROUPS" Width="1.5" PointX="6.75" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModel.GROUPS_HIERARCHY" Width="1.5" PointX="10.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModel.GROUPS_TYPES" Width="1.5" PointX="2.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModel.GROUPS_TYPES_ASSIGNATIONS" Width="1.5" PointX="2.75" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModel.INSTALLATIONS" Width="1.5" PointX="4.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModel.PARKING_SPACES" Width="1.5" PointX="13.25" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModel.UNIT_ALARM_TYPES" Width="1.5" PointX="0.625" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModel.UNITS" Width="1.5" PointX="9" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModel.UNITS_GROUPS" Width="1.5" PointX="6.875" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModel.UNITS_LOGICAL_PARKING_SPACES" Width="1.5" PointX="11.125" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModel.UNITS_PHYSICAL_PARKING_SPACES" Width="1.5" PointX="11.125" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModel.UNITS_SYNC_VERSIONS" Width="1.5" PointX="6.875" PointY="9.375" IsExpanded="true" />
+        <AssociationConnector Association="BCTOTA2PAModel.FK_COUNTRIES_CURRENCIES" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModel.FK_INSTALLATIONS_COUNTRIES" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModel.FK_INSTALLATIONS_CURRENCIES" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModel.FK_GROUPS_GROUPS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModel.FK_GROUPS_HIERARCHY_CHILD_GROUPS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModel.FK_GROUPS_HIERARCHY_PARENT_GROUPS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModel.FK_GROUPS_INSTALLATIONS" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="BCTOTA2PAModel.FK_GROUPS_TYPES_ASSIGNATIONS_GROUPS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModel.FK_PARKING_SPACES_GROUPS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModel.FK_UNITS_GROUPS_GROUPS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModel.FK_GROUPS_TYPES_ASSIGNATIONS_GROUPS_TYPES" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModel.FK_GROUPS_TYPES_INSTALLATIONS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModel.FK_UNITS_INSTALLATIONS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModel.FK_UNITS_LOGICAL_PARKING_SPACES_PARKING_SPACES" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModel.FK_UNITS_PHYSICAL_PARKING_SPACES_PARKING_SPACES" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModel.FK_UNITS_GROUPS_UNITS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModel.FK_UNITS_LOGICAL_PARKING_SPACES_UNITS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModel.FK_UNITS_PHYSICAL_PARKING_SPACES_UNITS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModel.FK_UNITS_SYNC_VERSIONS_UNITS" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,1283 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BCTOTA2PAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="COUNTRIES">
+          <Key>
+            <PropertyRef Name="COU_ID" />
+          </Key>
+          <Property Name="COU_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="COU_DESCRIPTION" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="COU_CODE" Type="varchar" MaxLength="10" />
+          <Property Name="COU_TEL_PREFIX" Type="varchar" MaxLength="10" />
+          <Property Name="COU_CUR_ID" Type="numeric" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="CURRENCIES">
+          <Key>
+            <PropertyRef Name="CUR_ID" />
+          </Key>
+          <Property Name="CUR_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="CUR_NAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CUR_ISO_CODE" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="CUR_ISO_CODE_NUM" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="CUR_SYMBOL" Type="nvarchar" MaxLength="10" />
+          <Property Name="CUR_FACT" Type="float" />
+          <Property Name="CUR_MASK" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="GROUPS">
+          <Key>
+            <PropertyRef Name="GRP_ID" />
+          </Key>
+          <Property Name="GRP_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="GRP_DESCRIPTION" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="GRP_INS_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="GRP_QUERY_EXT_ID" Type="varchar" MaxLength="20" />
+          <Property Name="GRP_EXT1_ID" Type="varchar" MaxLength="50" />
+          <Property Name="GRP_EXT2_ID" Type="varchar" MaxLength="20" />
+          <Property Name="GRP_EXT3_ID" Type="varchar" MaxLength="20" />
+          <Property Name="GRP_HASH" Type="varchar" MaxLength="50" />
+          <Property Name="GRP_TREE_TYPE" Type="int" Nullable="false" />
+          <Property Name="GRP_LOG_GRP_ID" Type="numeric" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="GROUPS_HIERARCHY">
+          <Key>
+            <PropertyRef Name="GRHI_ID" />
+          </Key>
+          <Property Name="GRHI_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GRHI_GRP_ID_PARENT" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="GRHI_GRP_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="GRHI_INI_APPLY_DATE" Type="datetime" Nullable="false" />
+          <Property Name="GRHI_END_APPLY_DATE" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GROUPS_TYPES">
+          <Key>
+            <PropertyRef Name="GRPT_ID" />
+          </Key>
+          <Property Name="GRPT_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="GRPT_INS_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="GRPT_DESCRIPTION" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="GROUPS_TYPES_ASSIGNATIONS">
+          <Key>
+            <PropertyRef Name="GTA_ID" />
+          </Key>
+          <Property Name="GTA_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GTA_DESCRIPTION" Type="varchar" MaxLength="50" />
+          <Property Name="GTA_GRP_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="GTA_GRPT_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="GTA_INI_APPLY_DATE" Type="datetime" Nullable="false" />
+          <Property Name="GTA_END_APPLY_DATE" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="INSTALLATIONS">
+          <Key>
+            <PropertyRef Name="INS_ID" />
+          </Key>
+          <Property Name="INS_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="INS_DESCRIPTION" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="INS_SHORTDESC" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="INS_COU_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="INS_CUR_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="INS_TIMEZONE_ID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="INS_SECOND1_CUR_ID" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="INS_SECOND2_CUR_ID" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="INS_INFO_SCREEN_IMAGE_WIDTH" Type="int" />
+          <Property Name="INS_INFO_SCREEN_IMAGE_HEIGHT" Type="int" />
+          <Property Name="INS_INFO_SCREEN_IMAGE_OFFSET_X" Type="int" />
+          <Property Name="INS_INFO_SCREEN_IMAGE_OFFSET_Y" Type="int" />
+          <Property Name="INS_WAKEUP_SCREEN_IMAGE_WIDTH" Type="int" />
+          <Property Name="INS_WAKEUP_SCREEN_IMAGE_HEIGHT" Type="int" />
+          <Property Name="INS_WAKEUP_SCREEN_IMAGE_OFFSET_X" Type="int" />
+          <Property Name="INS_WAKEUP_SCREEN_IMAGE_OFFSET_Y" Type="int" />
+          <Property Name="INS_RECHARGE_MIN_ALLOWED" Type="int" />
+          <Property Name="INS_RECHARGE_MAX_ALLOWED" Type="int" />
+          <Property Name="INS_WALLET_MAX_BALANCE" Type="int" />
+          <Property Name="INS_RECHARGE_INCREMENTS" Type="varchar" MaxLength="500" />
+          <Property Name="INS_RECHARGE_DECREMENTS" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="PARKING_SPACES">
+          <Key>
+            <PropertyRef Name="PSP_ID" />
+          </Key>
+          <Property Name="PSP_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PSP_DESCRIPTION" Type="varchar" MaxLength="100" />
+          <Property Name="PSP_EXT_ID" Type="varchar" MaxLength="20" />
+          <Property Name="PSP_PHY_ID" Type="varchar" MaxLength="50" />
+          <Property Name="PSP_PHY_STATUS" Type="int" Nullable="false" />
+          <Property Name="PSP_PHY_STATUS_UTC_DATE" Type="datetime" Nullable="false" />
+          <Property Name="PSP_LOG_STATUS" Type="int" Nullable="false" />
+          <Property Name="PSP_LOG_STATUS_UTC_DATE" Type="datetime" Nullable="false" />
+          <Property Name="PSP_COMM_STATUS" Type="int" Nullable="false" />
+          <Property Name="PSP_COMM_UTC_DATE" Type="datetime" />
+          <Property Name="PSP_STSE_ID" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="PSP_GRP_ID" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="PSP_GPS_LATITUDE" Type="numeric" Precision="18" Scale="6" />
+          <Property Name="PSP_GPS_LONGITUDE" Type="numeric" Precision="18" Scale="6" />
+          <Property Name="PSP_OPE_ID" Type="numeric" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="UNIT_ALARM_TYPES">
+          <Key>
+            <PropertyRef Name="UAT_ID" />
+          </Key>
+          <Property Name="UAT_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UAT_NAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UAT_DESCRIPTION" Type="varchar" MaxLength="512" />
+          <Property Name="UAT_HW_MASK" Type="bigint" />
+          <Property Name="UAT_LEVEL" Type="int" Nullable="false" />
+          <Property Name="UAT_COLOR" Type="varchar" MaxLength="50" />
+          <Property Name="UAT_SALES_MODE" Type="int" />
+        </EntityType>
+        <EntityType Name="UNITS">
+          <Key>
+            <PropertyRef Name="UNI_ID" />
+          </Key>
+          <Property Name="UNI_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UNI_EXTERNAL_ID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="UNI_DESCRIPTION" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UNI_SW_VERSION" Type="varchar" MaxLength="50" />
+          <Property Name="UNI_HW_VERSION" Type="varchar" MaxLength="50" />
+          <Property Name="UNI_IP" Type="varchar" MaxLength="50" />
+          <Property Name="UNI_DATE" Type="datetime" />
+          <Property Name="UNI_STATUS" Type="int" />
+          <Property Name="UNI_STATUS_DATE" Type="datetime" />
+          <Property Name="UNI_USET_ID" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="UNI_ULIT_ID" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="UNI_INS_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="UNI_CMD_SERVICE" Type="varchar" MaxLength="200" />
+          <Property Name="UNI_CMD_STATUS" Type="int" />
+          <Property Name="UNI_CMD_STATUS_DATE" Type="datetime" />
+          <Property Name="UNI_INCOMPLETION_FLAG" Type="int" />
+        </EntityType>
+        <EntityType Name="UNITS_GROUPS">
+          <Key>
+            <PropertyRef Name="UNGR_ID" />
+          </Key>
+          <Property Name="UNGR_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UNGR_DESCRIPTION" Type="varchar" MaxLength="50" />
+          <Property Name="UNGR_UNI_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="UNGR_GRP_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="UNGR_INI_APPLY_DATE" Type="datetime" Nullable="false" />
+          <Property Name="UNGR_END_APPLY_DATE" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UNITS_LOGICAL_PARKING_SPACES">
+          <Key>
+            <PropertyRef Name="UNLS_ID" />
+          </Key>
+          <Property Name="UNLS_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UNLS_UNI_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="UNLS_PSP_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="UNLS_END_APPLY_DATE" Type="datetime" Nullable="false" />
+          <Property Name="UNLS_INI_APPLY_DATE" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UNITS_PHYSICAL_PARKING_SPACES">
+          <Key>
+            <PropertyRef Name="UNPS_ID" />
+          </Key>
+          <Property Name="UNPS_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UNPS_UNI_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="UNPS_PSP_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UNITS_SYNC_VERSIONS">
+          <Key>
+            <PropertyRef Name="USYV_ID" />
+          </Key>
+          <Property Name="USYV_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="USYV_UNI_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="USYV_TABLE_NAME" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="USYV_CURR_VERSION" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_COUNTRIES_CURRENCIES">
+          <End Role="CURRENCIES" Type="Self.CURRENCIES" Multiplicity="0..1" />
+          <End Role="COUNTRIES" Type="Self.COUNTRIES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CURRENCIES">
+              <PropertyRef Name="CUR_ID" />
+            </Principal>
+            <Dependent Role="COUNTRIES">
+              <PropertyRef Name="COU_CUR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GROUPS_GROUPS">
+          <End Role="GROUPS" Type="Self.GROUPS" Multiplicity="0..1" />
+          <End Role="GROUPS1" Type="Self.GROUPS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GROUPS">
+              <PropertyRef Name="GRP_ID" />
+            </Principal>
+            <Dependent Role="GROUPS1">
+              <PropertyRef Name="GRP_LOG_GRP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GROUPS_HIERARCHY_CHILD_GROUPS">
+          <End Role="GROUPS" Type="Self.GROUPS" Multiplicity="1" />
+          <End Role="GROUPS_HIERARCHY" Type="Self.GROUPS_HIERARCHY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GROUPS">
+              <PropertyRef Name="GRP_ID" />
+            </Principal>
+            <Dependent Role="GROUPS_HIERARCHY">
+              <PropertyRef Name="GRHI_GRP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GROUPS_HIERARCHY_PARENT_GROUPS">
+          <End Role="GROUPS" Type="Self.GROUPS" Multiplicity="0..1" />
+          <End Role="GROUPS_HIERARCHY" Type="Self.GROUPS_HIERARCHY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GROUPS">
+              <PropertyRef Name="GRP_ID" />
+            </Principal>
+            <Dependent Role="GROUPS_HIERARCHY">
+              <PropertyRef Name="GRHI_GRP_ID_PARENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GROUPS_INSTALLATIONS">
+          <End Role="INSTALLATIONS" Type="Self.INSTALLATIONS" Multiplicity="1" />
+          <End Role="GROUPS" Type="Self.GROUPS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INSTALLATIONS">
+              <PropertyRef Name="INS_ID" />
+            </Principal>
+            <Dependent Role="GROUPS">
+              <PropertyRef Name="GRP_INS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GROUPS_TYPES_ASSIGNATIONS_GROUPS">
+          <End Role="GROUPS" Type="Self.GROUPS" Multiplicity="1" />
+          <End Role="GROUPS_TYPES_ASSIGNATIONS" Type="Self.GROUPS_TYPES_ASSIGNATIONS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GROUPS">
+              <PropertyRef Name="GRP_ID" />
+            </Principal>
+            <Dependent Role="GROUPS_TYPES_ASSIGNATIONS">
+              <PropertyRef Name="GTA_GRP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GROUPS_TYPES_ASSIGNATIONS_GROUPS_TYPES">
+          <End Role="GROUPS_TYPES" Type="Self.GROUPS_TYPES" Multiplicity="1" />
+          <End Role="GROUPS_TYPES_ASSIGNATIONS" Type="Self.GROUPS_TYPES_ASSIGNATIONS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GROUPS_TYPES">
+              <PropertyRef Name="GRPT_ID" />
+            </Principal>
+            <Dependent Role="GROUPS_TYPES_ASSIGNATIONS">
+              <PropertyRef Name="GTA_GRPT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GROUPS_TYPES_INSTALLATIONS">
+          <End Role="INSTALLATIONS" Type="Self.INSTALLATIONS" Multiplicity="1" />
+          <End Role="GROUPS_TYPES" Type="Self.GROUPS_TYPES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INSTALLATIONS">
+              <PropertyRef Name="INS_ID" />
+            </Principal>
+            <Dependent Role="GROUPS_TYPES">
+              <PropertyRef Name="GRPT_INS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_INSTALLATIONS_COUNTRIES">
+          <End Role="COUNTRIES" Type="Self.COUNTRIES" Multiplicity="1" />
+          <End Role="INSTALLATIONS" Type="Self.INSTALLATIONS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COUNTRIES">
+              <PropertyRef Name="COU_ID" />
+            </Principal>
+            <Dependent Role="INSTALLATIONS">
+              <PropertyRef Name="INS_COU_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_INSTALLATIONS_CURRENCIES">
+          <End Role="CURRENCIES" Type="Self.CURRENCIES" Multiplicity="1" />
+          <End Role="INSTALLATIONS" Type="Self.INSTALLATIONS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CURRENCIES">
+              <PropertyRef Name="CUR_ID" />
+            </Principal>
+            <Dependent Role="INSTALLATIONS">
+              <PropertyRef Name="INS_CUR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PARKING_SPACES_GROUPS">
+          <End Role="GROUPS" Type="Self.GROUPS" Multiplicity="0..1" />
+          <End Role="PARKING_SPACES" Type="Self.PARKING_SPACES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GROUPS">
+              <PropertyRef Name="GRP_ID" />
+            </Principal>
+            <Dependent Role="PARKING_SPACES">
+              <PropertyRef Name="PSP_GRP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UNITS_GROUPS_GROUPS">
+          <End Role="GROUPS" Type="Self.GROUPS" Multiplicity="1" />
+          <End Role="UNITS_GROUPS" Type="Self.UNITS_GROUPS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GROUPS">
+              <PropertyRef Name="GRP_ID" />
+            </Principal>
+            <Dependent Role="UNITS_GROUPS">
+              <PropertyRef Name="UNGR_GRP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UNITS_GROUPS_UNITS">
+          <End Role="UNITS" Type="Self.UNITS" Multiplicity="1" />
+          <End Role="UNITS_GROUPS" Type="Self.UNITS_GROUPS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UNITS">
+              <PropertyRef Name="UNI_ID" />
+            </Principal>
+            <Dependent Role="UNITS_GROUPS">
+              <PropertyRef Name="UNGR_UNI_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UNITS_INSTALLATIONS">
+          <End Role="INSTALLATIONS" Type="Self.INSTALLATIONS" Multiplicity="1" />
+          <End Role="UNITS" Type="Self.UNITS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INSTALLATIONS">
+              <PropertyRef Name="INS_ID" />
+            </Principal>
+            <Dependent Role="UNITS">
+              <PropertyRef Name="UNI_INS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UNITS_LOGICAL_PARKING_SPACES_PARKING_SPACES">
+          <End Role="PARKING_SPACES" Type="Self.PARKING_SPACES" Multiplicity="1" />
+          <End Role="UNITS_LOGICAL_PARKING_SPACES" Type="Self.UNITS_LOGICAL_PARKING_SPACES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PARKING_SPACES">
+              <PropertyRef Name="PSP_ID" />
+            </Principal>
+            <Dependent Role="UNITS_LOGICAL_PARKING_SPACES">
+              <PropertyRef Name="UNLS_PSP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UNITS_LOGICAL_PARKING_SPACES_UNITS">
+          <End Role="UNITS" Type="Self.UNITS" Multiplicity="1" />
+          <End Role="UNITS_LOGICAL_PARKING_SPACES" Type="Self.UNITS_LOGICAL_PARKING_SPACES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UNITS">
+              <PropertyRef Name="UNI_ID" />
+            </Principal>
+            <Dependent Role="UNITS_LOGICAL_PARKING_SPACES">
+              <PropertyRef Name="UNLS_UNI_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UNITS_PHYSICAL_PARKING_SPACES_PARKING_SPACES">
+          <End Role="PARKING_SPACES" Type="Self.PARKING_SPACES" Multiplicity="1" />
+          <End Role="UNITS_PHYSICAL_PARKING_SPACES" Type="Self.UNITS_PHYSICAL_PARKING_SPACES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PARKING_SPACES">
+              <PropertyRef Name="PSP_ID" />
+            </Principal>
+            <Dependent Role="UNITS_PHYSICAL_PARKING_SPACES">
+              <PropertyRef Name="UNPS_PSP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UNITS_PHYSICAL_PARKING_SPACES_UNITS">
+          <End Role="UNITS" Type="Self.UNITS" Multiplicity="1" />
+          <End Role="UNITS_PHYSICAL_PARKING_SPACES" Type="Self.UNITS_PHYSICAL_PARKING_SPACES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UNITS">
+              <PropertyRef Name="UNI_ID" />
+            </Principal>
+            <Dependent Role="UNITS_PHYSICAL_PARKING_SPACES">
+              <PropertyRef Name="UNPS_UNI_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UNITS_SYNC_VERSIONS_UNITS">
+          <End Role="UNITS" Type="Self.UNITS" Multiplicity="1" />
+          <End Role="UNITS_SYNC_VERSIONS" Type="Self.UNITS_SYNC_VERSIONS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UNITS">
+              <PropertyRef Name="UNI_ID" />
+            </Principal>
+            <Dependent Role="UNITS_SYNC_VERSIONS">
+              <PropertyRef Name="USYV_UNI_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BCTOTA2PAModelStoreContainer">
+          <EntitySet Name="COUNTRIES" EntityType="Self.COUNTRIES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CURRENCIES" EntityType="Self.CURRENCIES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GROUPS" EntityType="Self.GROUPS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GROUPS_HIERARCHY" EntityType="Self.GROUPS_HIERARCHY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GROUPS_TYPES" EntityType="Self.GROUPS_TYPES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GROUPS_TYPES_ASSIGNATIONS" EntityType="Self.GROUPS_TYPES_ASSIGNATIONS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="INSTALLATIONS" EntityType="Self.INSTALLATIONS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PARKING_SPACES" EntityType="Self.PARKING_SPACES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UNIT_ALARM_TYPES" EntityType="Self.UNIT_ALARM_TYPES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UNITS" EntityType="Self.UNITS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UNITS_GROUPS" EntityType="Self.UNITS_GROUPS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UNITS_LOGICAL_PARKING_SPACES" EntityType="Self.UNITS_LOGICAL_PARKING_SPACES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UNITS_PHYSICAL_PARKING_SPACES" EntityType="Self.UNITS_PHYSICAL_PARKING_SPACES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UNITS_SYNC_VERSIONS" EntityType="Self.UNITS_SYNC_VERSIONS" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_COUNTRIES_CURRENCIES" Association="Self.FK_COUNTRIES_CURRENCIES">
+            <End Role="CURRENCIES" EntitySet="CURRENCIES" />
+            <End Role="COUNTRIES" EntitySet="COUNTRIES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GROUPS_GROUPS" Association="Self.FK_GROUPS_GROUPS">
+            <End Role="GROUPS" EntitySet="GROUPS" />
+            <End Role="GROUPS1" EntitySet="GROUPS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GROUPS_HIERARCHY_CHILD_GROUPS" Association="Self.FK_GROUPS_HIERARCHY_CHILD_GROUPS">
+            <End Role="GROUPS" EntitySet="GROUPS" />
+            <End Role="GROUPS_HIERARCHY" EntitySet="GROUPS_HIERARCHY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GROUPS_HIERARCHY_PARENT_GROUPS" Association="Self.FK_GROUPS_HIERARCHY_PARENT_GROUPS">
+            <End Role="GROUPS" EntitySet="GROUPS" />
+            <End Role="GROUPS_HIERARCHY" EntitySet="GROUPS_HIERARCHY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GROUPS_INSTALLATIONS" Association="Self.FK_GROUPS_INSTALLATIONS">
+            <End Role="INSTALLATIONS" EntitySet="INSTALLATIONS" />
+            <End Role="GROUPS" EntitySet="GROUPS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GROUPS_TYPES_ASSIGNATIONS_GROUPS" Association="Self.FK_GROUPS_TYPES_ASSIGNATIONS_GROUPS">
+            <End Role="GROUPS" EntitySet="GROUPS" />
+            <End Role="GROUPS_TYPES_ASSIGNATIONS" EntitySet="GROUPS_TYPES_ASSIGNATIONS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GROUPS_TYPES_ASSIGNATIONS_GROUPS_TYPES" Association="Self.FK_GROUPS_TYPES_ASSIGNATIONS_GROUPS_TYPES">
+            <End Role="GROUPS_TYPES" EntitySet="GROUPS_TYPES" />
+            <End Role="GROUPS_TYPES_ASSIGNATIONS" EntitySet="GROUPS_TYPES_ASSIGNATIONS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GROUPS_TYPES_INSTALLATIONS" Association="Self.FK_GROUPS_TYPES_INSTALLATIONS">
+            <End Role="INSTALLATIONS" EntitySet="INSTALLATIONS" />
+            <End Role="GROUPS_TYPES" EntitySet="GROUPS_TYPES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_INSTALLATIONS_COUNTRIES" Association="Self.FK_INSTALLATIONS_COUNTRIES">
+            <End Role="COUNTRIES" EntitySet="COUNTRIES" />
+            <End Role="INSTALLATIONS" EntitySet="INSTALLATIONS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_INSTALLATIONS_CURRENCIES" Association="Self.FK_INSTALLATIONS_CURRENCIES">
+            <End Role="CURRENCIES" EntitySet="CURRENCIES" />
+            <End Role="INSTALLATIONS" EntitySet="INSTALLATIONS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PARKING_SPACES_GROUPS" Association="Self.FK_PARKING_SPACES_GROUPS">
+            <End Role="GROUPS" EntitySet="GROUPS" />
+            <End Role="PARKING_SPACES" EntitySet="PARKING_SPACES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UNITS_GROUPS_GROUPS" Association="Self.FK_UNITS_GROUPS_GROUPS">
+            <End Role="GROUPS" EntitySet="GROUPS" />
+            <End Role="UNITS_GROUPS" EntitySet="UNITS_GROUPS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UNITS_GROUPS_UNITS" Association="Self.FK_UNITS_GROUPS_UNITS">
+            <End Role="UNITS" EntitySet="UNITS" />
+            <End Role="UNITS_GROUPS" EntitySet="UNITS_GROUPS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UNITS_INSTALLATIONS" Association="Self.FK_UNITS_INSTALLATIONS">
+            <End Role="INSTALLATIONS" EntitySet="INSTALLATIONS" />
+            <End Role="UNITS" EntitySet="UNITS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UNITS_LOGICAL_PARKING_SPACES_PARKING_SPACES" Association="Self.FK_UNITS_LOGICAL_PARKING_SPACES_PARKING_SPACES">
+            <End Role="PARKING_SPACES" EntitySet="PARKING_SPACES" />
+            <End Role="UNITS_LOGICAL_PARKING_SPACES" EntitySet="UNITS_LOGICAL_PARKING_SPACES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UNITS_LOGICAL_PARKING_SPACES_UNITS" Association="Self.FK_UNITS_LOGICAL_PARKING_SPACES_UNITS">
+            <End Role="UNITS" EntitySet="UNITS" />
+            <End Role="UNITS_LOGICAL_PARKING_SPACES" EntitySet="UNITS_LOGICAL_PARKING_SPACES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UNITS_PHYSICAL_PARKING_SPACES_PARKING_SPACES" Association="Self.FK_UNITS_PHYSICAL_PARKING_SPACES_PARKING_SPACES">
+            <End Role="PARKING_SPACES" EntitySet="PARKING_SPACES" />
+            <End Role="UNITS_PHYSICAL_PARKING_SPACES" EntitySet="UNITS_PHYSICAL_PARKING_SPACES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UNITS_PHYSICAL_PARKING_SPACES_UNITS" Association="Self.FK_UNITS_PHYSICAL_PARKING_SPACES_UNITS">
+            <End Role="UNITS" EntitySet="UNITS" />
+            <End Role="UNITS_PHYSICAL_PARKING_SPACES" EntitySet="UNITS_PHYSICAL_PARKING_SPACES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UNITS_SYNC_VERSIONS_UNITS" Association="Self.FK_UNITS_SYNC_VERSIONS_UNITS">
+            <End Role="UNITS" EntitySet="UNITS" />
+            <End Role="UNITS_SYNC_VERSIONS" EntitySet="UNITS_SYNC_VERSIONS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BCTOTA2PAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="COUNTRIES">
+          <Key>
+            <PropertyRef Name="COU_ID" />
+          </Key>
+          <Property Name="COU_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="COU_DESCRIPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="COU_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="COU_TEL_PREFIX" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="COU_CUR_ID" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="CURRENCIES" Relationship="Self.FK_COUNTRIES_CURRENCIES" FromRole="COUNTRIES" ToRole="CURRENCIES" />
+          <NavigationProperty Name="INSTALLATIONS" Relationship="Self.FK_INSTALLATIONS_COUNTRIES" FromRole="COUNTRIES" ToRole="INSTALLATIONS" />
+        </EntityType>
+        <EntityType Name="CURRENCIES">
+          <Key>
+            <PropertyRef Name="CUR_ID" />
+          </Key>
+          <Property Name="CUR_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="CUR_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CUR_ISO_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CUR_ISO_CODE_NUM" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CUR_SYMBOL" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CUR_FACT" Type="Double" />
+          <Property Name="CUR_MASK" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="COUNTRIES" Relationship="Self.FK_COUNTRIES_CURRENCIES" FromRole="CURRENCIES" ToRole="COUNTRIES" />
+          <NavigationProperty Name="INSTALLATIONS" Relationship="Self.FK_INSTALLATIONS_CURRENCIES" FromRole="CURRENCIES" ToRole="INSTALLATIONS" />
+        </EntityType>
+        <EntityType Name="GROUPS">
+          <Key>
+            <PropertyRef Name="GRP_ID" />
+          </Key>
+          <Property Name="GRP_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="GRP_DESCRIPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GRP_INS_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="GRP_QUERY_EXT_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="GRP_EXT1_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GRP_EXT2_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="GRP_EXT3_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="GRP_HASH" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GRP_TREE_TYPE" Type="Int32" Nullable="false" />
+          <Property Name="GRP_LOG_GRP_ID" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="GROUPS1" Relationship="Self.FK_GROUPS_GROUPS" FromRole="GROUPS" ToRole="GROUPS1" />
+          <NavigationProperty Name="GROUPS2" Relationship="Self.FK_GROUPS_GROUPS" FromRole="GROUPS1" ToRole="GROUPS" />
+          <NavigationProperty Name="GROUPS_HIERARCHY" Relationship="Self.FK_GROUPS_HIERARCHY_CHILD_GROUPS" FromRole="GROUPS" ToRole="GROUPS_HIERARCHY" />
+          <NavigationProperty Name="GROUPS_HIERARCHY1" Relationship="Self.FK_GROUPS_HIERARCHY_PARENT_GROUPS" FromRole="GROUPS" ToRole="GROUPS_HIERARCHY" />
+          <NavigationProperty Name="INSTALLATIONS" Relationship="Self.FK_GROUPS_INSTALLATIONS" FromRole="GROUPS" ToRole="INSTALLATIONS" />
+          <NavigationProperty Name="GROUPS_TYPES_ASSIGNATIONS" Relationship="Self.FK_GROUPS_TYPES_ASSIGNATIONS_GROUPS" FromRole="GROUPS" ToRole="GROUPS_TYPES_ASSIGNATIONS" />
+          <NavigationProperty Name="PARKING_SPACES" Relationship="Self.FK_PARKING_SPACES_GROUPS" FromRole="GROUPS" ToRole="PARKING_SPACES" />
+          <NavigationProperty Name="UNITS_GROUPS" Relationship="Self.FK_UNITS_GROUPS_GROUPS" FromRole="GROUPS" ToRole="UNITS_GROUPS" />
+        </EntityType>
+        <EntityType Name="GROUPS_HIERARCHY">
+          <Key>
+            <PropertyRef Name="GRHI_ID" />
+          </Key>
+          <Property Name="GRHI_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GRHI_GRP_ID_PARENT" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="GRHI_GRP_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="GRHI_INI_APPLY_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="GRHI_END_APPLY_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="GROUPS" Relationship="Self.FK_GROUPS_HIERARCHY_CHILD_GROUPS" FromRole="GROUPS_HIERARCHY" ToRole="GROUPS" />
+          <NavigationProperty Name="GROUPS1" Relationship="Self.FK_GROUPS_HIERARCHY_PARENT_GROUPS" FromRole="GROUPS_HIERARCHY" ToRole="GROUPS" />
+        </EntityType>
+        <EntityType Name="GROUPS_TYPES">
+          <Key>
+            <PropertyRef Name="GRPT_ID" />
+          </Key>
+          <Property Name="GRPT_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="GRPT_INS_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="GRPT_DESCRIPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="GROUPS_TYPES_ASSIGNATIONS" Relationship="Self.FK_GROUPS_TYPES_ASSIGNATIONS_GROUPS_TYPES" FromRole="GROUPS_TYPES" ToRole="GROUPS_TYPES_ASSIGNATIONS" />
+          <NavigationProperty Name="INSTALLATIONS" Relationship="Self.FK_GROUPS_TYPES_INSTALLATIONS" FromRole="GROUPS_TYPES" ToRole="INSTALLATIONS" />
+        </EntityType>
+        <EntityType Name="GROUPS_TYPES_ASSIGNATIONS">
+          <Key>
+            <PropertyRef Name="GTA_ID" />
+          </Key>
+          <Property Name="GTA_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GTA_DESCRIPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GTA_GRP_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="GTA_GRPT_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="GTA_INI_APPLY_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="GTA_END_APPLY_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="GROUPS" Relationship="Self.FK_GROUPS_TYPES_ASSIGNATIONS_GROUPS" FromRole="GROUPS_TYPES_ASSIGNATIONS" ToRole="GROUPS" />
+          <NavigationProperty Name="GROUPS_TYPES" Relationship="Self.FK_GROUPS_TYPES_ASSIGNATIONS_GROUPS_TYPES" FromRole="GROUPS_TYPES_ASSIGNATIONS" ToRole="GROUPS_TYPES" />
+        </EntityType>
+        <EntityType Name="INSTALLATIONS">
+          <Key>
+            <PropertyRef Name="INS_ID" />
+          </Key>
+          <Property Name="INS_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="INS_DESCRIPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="INS_SHORTDESC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="INS_COU_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="INS_CUR_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="INS_TIMEZONE_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="INS_SECOND1_CUR_ID" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="INS_SECOND2_CUR_ID" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="INS_INFO_SCREEN_IMAGE_WIDTH" Type="Int32" />
+          <Property Name="INS_INFO_SCREEN_IMAGE_HEIGHT" Type="Int32" />
+          <Property Name="INS_INFO_SCREEN_IMAGE_OFFSET_X" Type="Int32" />
+          <Property Name="INS_INFO_SCREEN_IMAGE_OFFSET_Y" Type="Int32" />
+          <Property Name="INS_WAKEUP_SCREEN_IMAGE_WIDTH" Type="Int32" />
+          <Property Name="INS_WAKEUP_SCREEN_IMAGE_HEIGHT" Type="Int32" />
+          <Property Name="INS_WAKEUP_SCREEN_IMAGE_OFFSET_X" Type="Int32" />
+          <Property Name="INS_WAKEUP_SCREEN_IMAGE_OFFSET_Y" Type="Int32" />
+          <Property Name="INS_RECHARGE_MIN_ALLOWED" Type="Int32" />
+          <Property Name="INS_RECHARGE_MAX_ALLOWED" Type="Int32" />
+          <Property Name="INS_WALLET_MAX_BALANCE" Type="Int32" />
+          <Property Name="INS_RECHARGE_INCREMENTS" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="INS_RECHARGE_DECREMENTS" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="COUNTRIES" Relationship="Self.FK_INSTALLATIONS_COUNTRIES" FromRole="INSTALLATIONS" ToRole="COUNTRIES" />
+          <NavigationProperty Name="CURRENCIES" Relationship="Self.FK_INSTALLATIONS_CURRENCIES" FromRole="INSTALLATIONS" ToRole="CURRENCIES" />
+          <NavigationProperty Name="GROUPS" Relationship="Self.FK_GROUPS_INSTALLATIONS" FromRole="INSTALLATIONS" ToRole="GROUPS" />
+          <NavigationProperty Name="GROUPS_TYPES" Relationship="Self.FK_GROUPS_TYPES_INSTALLATIONS" FromRole="INSTALLATIONS" ToRole="GROUPS_TYPES" />
+          <NavigationProperty Name="UNITS" Relationship="Self.FK_UNITS_INSTALLATIONS" FromRole="INSTALLATIONS" ToRole="UNITS" />
+        </EntityType>
+        <EntityType Name="PARKING_SPACES">
+          <Key>
+            <PropertyRef Name="PSP_ID" />
+          </Key>
+          <Property Name="PSP_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PSP_DESCRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PSP_EXT_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PSP_PHY_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PSP_PHY_STATUS" Type="Int32" Nullable="false" />
+          <Property Name="PSP_PHY_STATUS_UTC_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PSP_LOG_STATUS" Type="Int32" Nullable="false" />
+          <Property Name="PSP_LOG_STATUS_UTC_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PSP_COMM_STATUS" Type="Int32" Nullable="false" />
+          <Property Name="PSP_COMM_UTC_DATE" Type="DateTime" Precision="3" />
+          <Property Name="PSP_STSE_ID" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="PSP_GRP_ID" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="PSP_GPS_LATITUDE" Type="Decimal" Precision="18" Scale="6" />
+          <Property Name="PSP_GPS_LONGITUDE" Type="Decimal" Precision="18" Scale="6" />
+          <Property Name="PSP_OPE_ID" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="GROUPS" Relationship="Self.FK_PARKING_SPACES_GROUPS" FromRole="PARKING_SPACES" ToRole="GROUPS" />
+          <NavigationProperty Name="UNITS_LOGICAL_PARKING_SPACES" Relationship="Self.FK_UNITS_LOGICAL_PARKING_SPACES_PARKING_SPACES" FromRole="PARKING_SPACES" ToRole="UNITS_LOGICAL_PARKING_SPACES" />
+          <NavigationProperty Name="UNITS_PHYSICAL_PARKING_SPACES" Relationship="Self.FK_UNITS_PHYSICAL_PARKING_SPACES_PARKING_SPACES" FromRole="PARKING_SPACES" ToRole="UNITS_PHYSICAL_PARKING_SPACES" />
+        </EntityType>
+        <EntityType Name="UNIT_ALARM_TYPES">
+          <Key>
+            <PropertyRef Name="UAT_ID" />
+          </Key>
+          <Property Name="UAT_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UAT_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UAT_DESCRIPTION" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+          <Property Name="UAT_HW_MASK" Type="Int64" />
+          <Property Name="UAT_LEVEL" Type="Int32" Nullable="false" />
+          <Property Name="UAT_COLOR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UAT_SALES_MODE" Type="Int32" />
+        </EntityType>
+        <EntityType Name="UNITS">
+          <Key>
+            <PropertyRef Name="UNI_ID" />
+          </Key>
+          <Property Name="UNI_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UNI_EXTERNAL_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UNI_DESCRIPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UNI_SW_VERSION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UNI_HW_VERSION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UNI_IP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UNI_DATE" Type="DateTime" Precision="3" />
+          <Property Name="UNI_STATUS" Type="Int32" />
+          <Property Name="UNI_STATUS_DATE" Type="DateTime" Precision="3" />
+          <Property Name="UNI_USET_ID" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="UNI_ULIT_ID" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="UNI_INS_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="UNI_CMD_SERVICE" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="UNI_CMD_STATUS" Type="Int32" />
+          <Property Name="UNI_CMD_STATUS_DATE" Type="DateTime" Precision="3" />
+          <Property Name="UNI_INCOMPLETION_FLAG" Type="Int32" />
+          <NavigationProperty Name="INSTALLATIONS" Relationship="Self.FK_UNITS_INSTALLATIONS" FromRole="UNITS" ToRole="INSTALLATIONS" />
+          <NavigationProperty Name="UNITS_GROUPS" Relationship="Self.FK_UNITS_GROUPS_UNITS" FromRole="UNITS" ToRole="UNITS_GROUPS" />
+          <NavigationProperty Name="UNITS_LOGICAL_PARKING_SPACES" Relationship="Self.FK_UNITS_LOGICAL_PARKING_SPACES_UNITS" FromRole="UNITS" ToRole="UNITS_LOGICAL_PARKING_SPACES" />
+          <NavigationProperty Name="UNITS_PHYSICAL_PARKING_SPACES" Relationship="Self.FK_UNITS_PHYSICAL_PARKING_SPACES_UNITS" FromRole="UNITS" ToRole="UNITS_PHYSICAL_PARKING_SPACES" />
+          <NavigationProperty Name="UNITS_SYNC_VERSIONS" Relationship="Self.FK_UNITS_SYNC_VERSIONS_UNITS" FromRole="UNITS" ToRole="UNITS_SYNC_VERSIONS" />
+        </EntityType>
+        <EntityType Name="UNITS_GROUPS">
+          <Key>
+            <PropertyRef Name="UNGR_ID" />
+          </Key>
+          <Property Name="UNGR_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UNGR_DESCRIPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UNGR_UNI_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="UNGR_GRP_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="UNGR_INI_APPLY_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UNGR_END_APPLY_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="GROUPS" Relationship="Self.FK_UNITS_GROUPS_GROUPS" FromRole="UNITS_GROUPS" ToRole="GROUPS" />
+          <NavigationProperty Name="UNITS" Relationship="Self.FK_UNITS_GROUPS_UNITS" FromRole="UNITS_GROUPS" ToRole="UNITS" />
+        </EntityType>
+        <EntityType Name="UNITS_LOGICAL_PARKING_SPACES">
+          <Key>
+            <PropertyRef Name="UNLS_ID" />
+          </Key>
+          <Property Name="UNLS_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UNLS_UNI_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="UNLS_PSP_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="UNLS_END_APPLY_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UNLS_INI_APPLY_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="PARKING_SPACES" Relationship="Self.FK_UNITS_LOGICAL_PARKING_SPACES_PARKING_SPACES" FromRole="UNITS_LOGICAL_PARKING_SPACES" ToRole="PARKING_SPACES" />
+          <NavigationProperty Name="UNITS" Relationship="Self.FK_UNITS_LOGICAL_PARKING_SPACES_UNITS" FromRole="UNITS_LOGICAL_PARKING_SPACES" ToRole="UNITS" />
+        </EntityType>
+        <EntityType Name="UNITS_PHYSICAL_PARKING_SPACES">
+          <Key>
+            <PropertyRef Name="UNPS_ID" />
+          </Key>
+          <Property Name="UNPS_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UNPS_UNI_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="UNPS_PSP_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <NavigationProperty Name="PARKING_SPACES" Relationship="Self.FK_UNITS_PHYSICAL_PARKING_SPACES_PARKING_SPACES" FromRole="UNITS_PHYSICAL_PARKING_SPACES" ToRole="PARKING_SPACES" />
+          <NavigationProperty Name="UNITS" Relationship="Self.FK_UNITS_PHYSICAL_PARKING_SPACES_UNITS" FromRole="UNITS_PHYSICAL_PARKING_SPACES" ToRole="UNITS" />
+        </EntityType>
+        <EntityType Name="UNITS_SYNC_VERSIONS">
+          <Key>
+            <PropertyRef Name="USYV_ID" />
+          </Key>
+          <Property Name="USYV_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="USYV_UNI_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="USYV_TABLE_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="USYV_CURR_VERSION" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <NavigationProperty Name="UNITS" Relationship="Self.FK_UNITS_SYNC_VERSIONS_UNITS" FromRole="UNITS_SYNC_VERSIONS" ToRole="UNITS" />
+        </EntityType>
+        <Association Name="FK_COUNTRIES_CURRENCIES">
+          <End Role="CURRENCIES" Type="Self.CURRENCIES" Multiplicity="0..1" />
+          <End Role="COUNTRIES" Type="Self.COUNTRIES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CURRENCIES">
+              <PropertyRef Name="CUR_ID" />
+            </Principal>
+            <Dependent Role="COUNTRIES">
+              <PropertyRef Name="COU_CUR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_INSTALLATIONS_COUNTRIES">
+          <End Role="COUNTRIES" Type="Self.COUNTRIES" Multiplicity="1" />
+          <End Role="INSTALLATIONS" Type="Self.INSTALLATIONS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COUNTRIES">
+              <PropertyRef Name="COU_ID" />
+            </Principal>
+            <Dependent Role="INSTALLATIONS">
+              <PropertyRef Name="INS_COU_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_INSTALLATIONS_CURRENCIES">
+          <End Role="CURRENCIES" Type="Self.CURRENCIES" Multiplicity="1" />
+          <End Role="INSTALLATIONS" Type="Self.INSTALLATIONS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CURRENCIES">
+              <PropertyRef Name="CUR_ID" />
+            </Principal>
+            <Dependent Role="INSTALLATIONS">
+              <PropertyRef Name="INS_CUR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GROUPS_GROUPS">
+          <End Role="GROUPS" Type="Self.GROUPS" Multiplicity="0..1" />
+          <End Role="GROUPS1" Type="Self.GROUPS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GROUPS">
+              <PropertyRef Name="GRP_ID" />
+            </Principal>
+            <Dependent Role="GROUPS1">
+              <PropertyRef Name="GRP_LOG_GRP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GROUPS_HIERARCHY_CHILD_GROUPS">
+          <End Role="GROUPS" Type="Self.GROUPS" Multiplicity="1" />
+          <End Role="GROUPS_HIERARCHY" Type="Self.GROUPS_HIERARCHY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GROUPS">
+              <PropertyRef Name="GRP_ID" />
+            </Principal>
+            <Dependent Role="GROUPS_HIERARCHY">
+              <PropertyRef Name="GRHI_GRP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GROUPS_HIERARCHY_PARENT_GROUPS">
+          <End Role="GROUPS" Type="Self.GROUPS" Multiplicity="0..1" />
+          <End Role="GROUPS_HIERARCHY" Type="Self.GROUPS_HIERARCHY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GROUPS">
+              <PropertyRef Name="GRP_ID" />
+            </Principal>
+            <Dependent Role="GROUPS_HIERARCHY">
+              <PropertyRef Name="GRHI_GRP_ID_PARENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GROUPS_INSTALLATIONS">
+          <End Role="INSTALLATIONS" Type="Self.INSTALLATIONS" Multiplicity="1" />
+          <End Role="GROUPS" Type="Self.GROUPS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INSTALLATIONS">
+              <PropertyRef Name="INS_ID" />
+            </Principal>
+            <Dependent Role="GROUPS">
+              <PropertyRef Name="GRP_INS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GROUPS_TYPES_ASSIGNATIONS_GROUPS">
+          <End Role="GROUPS" Type="Self.GROUPS" Multiplicity="1" />
+          <End Role="GROUPS_TYPES_ASSIGNATIONS" Type="Self.GROUPS_TYPES_ASSIGNATIONS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GROUPS">
+              <PropertyRef Name="GRP_ID" />
+            </Principal>
+            <Dependent Role="GROUPS_TYPES_ASSIGNATIONS">
+              <PropertyRef Name="GTA_GRP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PARKING_SPACES_GROUPS">
+          <End Role="GROUPS" Type="Self.GROUPS" Multiplicity="0..1" />
+          <End Role="PARKING_SPACES" Type="Self.PARKING_SPACES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GROUPS">
+              <PropertyRef Name="GRP_ID" />
+            </Principal>
+            <Dependent Role="PARKING_SPACES">
+              <PropertyRef Name="PSP_GRP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UNITS_GROUPS_GROUPS">
+          <End Role="GROUPS" Type="Self.GROUPS" Multiplicity="1" />
+          <End Role="UNITS_GROUPS" Type="Self.UNITS_GROUPS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GROUPS">
+              <PropertyRef Name="GRP_ID" />
+            </Principal>
+            <Dependent Role="UNITS_GROUPS">
+              <PropertyRef Name="UNGR_GRP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GROUPS_TYPES_ASSIGNATIONS_GROUPS_TYPES">
+          <End Role="GROUPS_TYPES" Type="Self.GROUPS_TYPES" Multiplicity="1" />
+          <End Role="GROUPS_TYPES_ASSIGNATIONS" Type="Self.GROUPS_TYPES_ASSIGNATIONS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GROUPS_TYPES">
+              <PropertyRef Name="GRPT_ID" />
+            </Principal>
+            <Dependent Role="GROUPS_TYPES_ASSIGNATIONS">
+              <PropertyRef Name="GTA_GRPT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GROUPS_TYPES_INSTALLATIONS">
+          <End Role="INSTALLATIONS" Type="Self.INSTALLATIONS" Multiplicity="1" />
+          <End Role="GROUPS_TYPES" Type="Self.GROUPS_TYPES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INSTALLATIONS">
+              <PropertyRef Name="INS_ID" />
+            </Principal>
+            <Dependent Role="GROUPS_TYPES">
+              <PropertyRef Name="GRPT_INS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UNITS_INSTALLATIONS">
+          <End Role="INSTALLATIONS" Type="Self.INSTALLATIONS" Multiplicity="1" />
+          <End Role="UNITS" Type="Self.UNITS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INSTALLATIONS">
+              <PropertyRef Name="INS_ID" />
+            </Principal>
+            <Dependent Role="UNITS">
+              <PropertyRef Name="UNI_INS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UNITS_LOGICAL_PARKING_SPACES_PARKING_SPACES">
+          <End Role="PARKING_SPACES" Type="Self.PARKING_SPACES" Multiplicity="1" />
+          <End Role="UNITS_LOGICAL_PARKING_SPACES" Type="Self.UNITS_LOGICAL_PARKING_SPACES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PARKING_SPACES">
+              <PropertyRef Name="PSP_ID" />
+            </Principal>
+            <Dependent Role="UNITS_LOGICAL_PARKING_SPACES">
+              <PropertyRef Name="UNLS_PSP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UNITS_PHYSICAL_PARKING_SPACES_PARKING_SPACES">
+          <End Role="PARKING_SPACES" Type="Self.PARKING_SPACES" Multiplicity="1" />
+          <End Role="UNITS_PHYSICAL_PARKING_SPACES" Type="Self.UNITS_PHYSICAL_PARKING_SPACES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PARKING_SPACES">
+              <PropertyRef Name="PSP_ID" />
+            </Principal>
+            <Dependent Role="UNITS_PHYSICAL_PARKING_SPACES">
+              <PropertyRef Name="UNPS_PSP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UNITS_GROUPS_UNITS">
+          <End Role="UNITS" Type="Self.UNITS" Multiplicity="1" />
+          <End Role="UNITS_GROUPS" Type="Self.UNITS_GROUPS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UNITS">
+              <PropertyRef Name="UNI_ID" />
+            </Principal>
+            <Dependent Role="UNITS_GROUPS">
+              <PropertyRef Name="UNGR_UNI_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UNITS_LOGICAL_PARKING_SPACES_UNITS">
+          <End Role="UNITS" Type="Self.UNITS" Multiplicity="1" />
+          <End Role="UNITS_LOGICAL_PARKING_SPACES" Type="Self.UNITS_LOGICAL_PARKING_SPACES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UNITS">
+              <PropertyRef Name="UNI_ID" />
+            </Principal>
+            <Dependent Role="UNITS_LOGICAL_PARKING_SPACES">
+              <PropertyRef Name="UNLS_UNI_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UNITS_PHYSICAL_PARKING_SPACES_UNITS">
+          <End Role="UNITS" Type="Self.UNITS" Multiplicity="1" />
+          <End Role="UNITS_PHYSICAL_PARKING_SPACES" Type="Self.UNITS_PHYSICAL_PARKING_SPACES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UNITS">
+              <PropertyRef Name="UNI_ID" />
+            </Principal>
+            <Dependent Role="UNITS_PHYSICAL_PARKING_SPACES">
+              <PropertyRef Name="UNPS_UNI_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UNITS_SYNC_VERSIONS_UNITS">
+          <End Role="UNITS" Type="Self.UNITS" Multiplicity="1" />
+          <End Role="UNITS_SYNC_VERSIONS" Type="Self.UNITS_SYNC_VERSIONS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UNITS">
+              <PropertyRef Name="UNI_ID" />
+            </Principal>
+            <Dependent Role="UNITS_SYNC_VERSIONS">
+              <PropertyRef Name="USYV_UNI_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BCTOTA2PAEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="COUNTRIES" EntityType="Self.COUNTRIES" />
+          <EntitySet Name="CURRENCIES" EntityType="Self.CURRENCIES" />
+          <EntitySet Name="GROUPS" EntityType="Self.GROUPS" />
+          <EntitySet Name="GROUPS_HIERARCHY" EntityType="Self.GROUPS_HIERARCHY" />
+          <EntitySet Name="GROUPS_TYPES" EntityType="Self.GROUPS_TYPES" />
+          <EntitySet Name="GROUPS_TYPES_ASSIGNATIONS" EntityType="Self.GROUPS_TYPES_ASSIGNATIONS" />
+          <EntitySet Name="INSTALLATIONS" EntityType="Self.INSTALLATIONS" />
+          <EntitySet Name="PARKING_SPACES" EntityType="Self.PARKING_SPACES" />
+          <EntitySet Name="UNIT_ALARM_TYPES" EntityType="Self.UNIT_ALARM_TYPES" />
+          <EntitySet Name="UNITS" EntityType="Self.UNITS" />
+          <EntitySet Name="UNITS_GROUPS" EntityType="Self.UNITS_GROUPS" />
+          <EntitySet Name="UNITS_LOGICAL_PARKING_SPACES" EntityType="Self.UNITS_LOGICAL_PARKING_SPACES" />
+          <EntitySet Name="UNITS_PHYSICAL_PARKING_SPACES" EntityType="Self.UNITS_PHYSICAL_PARKING_SPACES" />
+          <EntitySet Name="UNITS_SYNC_VERSIONS" EntityType="Self.UNITS_SYNC_VERSIONS" />
+          <AssociationSet Name="FK_COUNTRIES_CURRENCIES" Association="Self.FK_COUNTRIES_CURRENCIES">
+            <End Role="CURRENCIES" EntitySet="CURRENCIES" />
+            <End Role="COUNTRIES" EntitySet="COUNTRIES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_INSTALLATIONS_COUNTRIES" Association="Self.FK_INSTALLATIONS_COUNTRIES">
+            <End Role="COUNTRIES" EntitySet="COUNTRIES" />
+            <End Role="INSTALLATIONS" EntitySet="INSTALLATIONS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_INSTALLATIONS_CURRENCIES" Association="Self.FK_INSTALLATIONS_CURRENCIES">
+            <End Role="CURRENCIES" EntitySet="CURRENCIES" />
+            <End Role="INSTALLATIONS" EntitySet="INSTALLATIONS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GROUPS_GROUPS" Association="Self.FK_GROUPS_GROUPS">
+            <End Role="GROUPS" EntitySet="GROUPS" />
+            <End Role="GROUPS1" EntitySet="GROUPS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GROUPS_HIERARCHY_CHILD_GROUPS" Association="Self.FK_GROUPS_HIERARCHY_CHILD_GROUPS">
+            <End Role="GROUPS" EntitySet="GROUPS" />
+            <End Role="GROUPS_HIERARCHY" EntitySet="GROUPS_HIERARCHY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GROUPS_HIERARCHY_PARENT_GROUPS" Association="Self.FK_GROUPS_HIERARCHY_PARENT_GROUPS">
+            <End Role="GROUPS" EntitySet="GROUPS" />
+            <End Role="GROUPS_HIERARCHY" EntitySet="GROUPS_HIERARCHY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GROUPS_INSTALLATIONS" Association="Self.FK_GROUPS_INSTALLATIONS">
+            <End Role="INSTALLATIONS" EntitySet="INSTALLATIONS" />
+            <End Role="GROUPS" EntitySet="GROUPS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GROUPS_TYPES_ASSIGNATIONS_GROUPS" Association="Self.FK_GROUPS_TYPES_ASSIGNATIONS_GROUPS">
+            <End Role="GROUPS" EntitySet="GROUPS" />
+            <End Role="GROUPS_TYPES_ASSIGNATIONS" EntitySet="GROUPS_TYPES_ASSIGNATIONS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PARKING_SPACES_GROUPS" Association="Self.FK_PARKING_SPACES_GROUPS">
+            <End Role="GROUPS" EntitySet="GROUPS" />
+            <End Role="PARKING_SPACES" EntitySet="PARKING_SPACES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UNITS_GROUPS_GROUPS" Association="Self.FK_UNITS_GROUPS_GROUPS">
+            <End Role="GROUPS" EntitySet="GROUPS" />
+            <End Role="UNITS_GROUPS" EntitySet="UNITS_GROUPS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GROUPS_TYPES_ASSIGNATIONS_GROUPS_TYPES" Association="Self.FK_GROUPS_TYPES_ASSIGNATIONS_GROUPS_TYPES">
+            <End Role="GROUPS_TYPES" EntitySet="GROUPS_TYPES" />
+            <End Role="GROUPS_TYPES_ASSIGNATIONS" EntitySet="GROUPS_TYPES_ASSIGNATIONS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GROUPS_TYPES_INSTALLATIONS" Association="Self.FK_GROUPS_TYPES_INSTALLATIONS">
+            <End Role="INSTALLATIONS" EntitySet="INSTALLATIONS" />
+            <End Role="GROUPS_TYPES" EntitySet="GROUPS_TYPES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UNITS_INSTALLATIONS" Association="Self.FK_UNITS_INSTALLATIONS">
+            <End Role="INSTALLATIONS" EntitySet="INSTALLATIONS" />
+            <End Role="UNITS" EntitySet="UNITS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UNITS_LOGICAL_PARKING_SPACES_PARKING_SPACES" Association="Self.FK_UNITS_LOGICAL_PARKING_SPACES_PARKING_SPACES">
+            <End Role="PARKING_SPACES" EntitySet="PARKING_SPACES" />
+            <End Role="UNITS_LOGICAL_PARKING_SPACES" EntitySet="UNITS_LOGICAL_PARKING_SPACES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UNITS_PHYSICAL_PARKING_SPACES_PARKING_SPACES" Association="Self.FK_UNITS_PHYSICAL_PARKING_SPACES_PARKING_SPACES">
+            <End Role="PARKING_SPACES" EntitySet="PARKING_SPACES" />
+            <End Role="UNITS_PHYSICAL_PARKING_SPACES" EntitySet="UNITS_PHYSICAL_PARKING_SPACES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UNITS_GROUPS_UNITS" Association="Self.FK_UNITS_GROUPS_UNITS">
+            <End Role="UNITS" EntitySet="UNITS" />
+            <End Role="UNITS_GROUPS" EntitySet="UNITS_GROUPS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UNITS_LOGICAL_PARKING_SPACES_UNITS" Association="Self.FK_UNITS_LOGICAL_PARKING_SPACES_UNITS">
+            <End Role="UNITS" EntitySet="UNITS" />
+            <End Role="UNITS_LOGICAL_PARKING_SPACES" EntitySet="UNITS_LOGICAL_PARKING_SPACES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UNITS_PHYSICAL_PARKING_SPACES_UNITS" Association="Self.FK_UNITS_PHYSICAL_PARKING_SPACES_UNITS">
+            <End Role="UNITS" EntitySet="UNITS" />
+            <End Role="UNITS_PHYSICAL_PARKING_SPACES" EntitySet="UNITS_PHYSICAL_PARKING_SPACES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UNITS_SYNC_VERSIONS_UNITS" Association="Self.FK_UNITS_SYNC_VERSIONS_UNITS">
+            <End Role="UNITS" EntitySet="UNITS" />
+            <End Role="UNITS_SYNC_VERSIONS" EntitySet="UNITS_SYNC_VERSIONS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BCTOTA2PAModelStoreContainer" CdmEntityContainer="BCTOTA2PAEntities">
+          <EntitySetMapping Name="COUNTRIES">
+            <EntityTypeMapping TypeName="BCTOTA2PAModel.COUNTRIES">
+              <MappingFragment StoreEntitySet="COUNTRIES">
+                <ScalarProperty Name="COU_ID" ColumnName="COU_ID" />
+                <ScalarProperty Name="COU_DESCRIPTION" ColumnName="COU_DESCRIPTION" />
+                <ScalarProperty Name="COU_CODE" ColumnName="COU_CODE" />
+                <ScalarProperty Name="COU_TEL_PREFIX" ColumnName="COU_TEL_PREFIX" />
+                <ScalarProperty Name="COU_CUR_ID" ColumnName="COU_CUR_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CURRENCIES">
+            <EntityTypeMapping TypeName="BCTOTA2PAModel.CURRENCIES">
+              <MappingFragment StoreEntitySet="CURRENCIES">
+                <ScalarProperty Name="CUR_ID" ColumnName="CUR_ID" />
+                <ScalarProperty Name="CUR_NAME" ColumnName="CUR_NAME" />
+                <ScalarProperty Name="CUR_ISO_CODE" ColumnName="CUR_ISO_CODE" />
+                <ScalarProperty Name="CUR_ISO_CODE_NUM" ColumnName="CUR_ISO_CODE_NUM" />
+                <ScalarProperty Name="CUR_SYMBOL" ColumnName="CUR_SYMBOL" />
+                <ScalarProperty Name="CUR_FACT" ColumnName="CUR_FACT" />
+                <ScalarProperty Name="CUR_MASK" ColumnName="CUR_MASK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GROUPS">
+            <EntityTypeMapping TypeName="BCTOTA2PAModel.GROUPS">
+              <MappingFragment StoreEntitySet="GROUPS">
+                <ScalarProperty Name="GRP_ID" ColumnName="GRP_ID" />
+                <ScalarProperty Name="GRP_DESCRIPTION" ColumnName="GRP_DESCRIPTION" />
+                <ScalarProperty Name="GRP_INS_ID" ColumnName="GRP_INS_ID" />
+                <ScalarProperty Name="GRP_QUERY_EXT_ID" ColumnName="GRP_QUERY_EXT_ID" />
+                <ScalarProperty Name="GRP_EXT1_ID" ColumnName="GRP_EXT1_ID" />
+                <ScalarProperty Name="GRP_EXT2_ID" ColumnName="GRP_EXT2_ID" />
+                <ScalarProperty Name="GRP_EXT3_ID" ColumnName="GRP_EXT3_ID" />
+                <ScalarProperty Name="GRP_HASH" ColumnName="GRP_HASH" />
+                <ScalarProperty Name="GRP_TREE_TYPE" ColumnName="GRP_TREE_TYPE" />
+                <ScalarProperty Name="GRP_LOG_GRP_ID" ColumnName="GRP_LOG_GRP_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GROUPS_HIERARCHY">
+            <EntityTypeMapping TypeName="BCTOTA2PAModel.GROUPS_HIERARCHY">
+              <MappingFragment StoreEntitySet="GROUPS_HIERARCHY">
+                <ScalarProperty Name="GRHI_ID" ColumnName="GRHI_ID" />
+                <ScalarProperty Name="GRHI_GRP_ID_PARENT" ColumnName="GRHI_GRP_ID_PARENT" />
+                <ScalarProperty Name="GRHI_GRP_ID" ColumnName="GRHI_GRP_ID" />
+                <ScalarProperty Name="GRHI_INI_APPLY_DATE" ColumnName="GRHI_INI_APPLY_DATE" />
+                <ScalarProperty Name="GRHI_END_APPLY_DATE" ColumnName="GRHI_END_APPLY_DATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GROUPS_TYPES">
+            <EntityTypeMapping TypeName="BCTOTA2PAModel.GROUPS_TYPES">
+              <MappingFragment StoreEntitySet="GROUPS_TYPES">
+                <ScalarProperty Name="GRPT_ID" ColumnName="GRPT_ID" />
+                <ScalarProperty Name="GRPT_INS_ID" ColumnName="GRPT_INS_ID" />
+                <ScalarProperty Name="GRPT_DESCRIPTION" ColumnName="GRPT_DESCRIPTION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GROUPS_TYPES_ASSIGNATIONS">
+            <EntityTypeMapping TypeName="BCTOTA2PAModel.GROUPS_TYPES_ASSIGNATIONS">
+              <MappingFragment StoreEntitySet="GROUPS_TYPES_ASSIGNATIONS">
+                <ScalarProperty Name="GTA_ID" ColumnName="GTA_ID" />
+                <ScalarProperty Name="GTA_DESCRIPTION" ColumnName="GTA_DESCRIPTION" />
+                <ScalarProperty Name="GTA_GRP_ID" ColumnName="GTA_GRP_ID" />
+                <ScalarProperty Name="GTA_GRPT_ID" ColumnName="GTA_GRPT_ID" />
+                <ScalarProperty Name="GTA_INI_APPLY_DATE" ColumnName="GTA_INI_APPLY_DATE" />
+                <ScalarProperty Name="GTA_END_APPLY_DATE" ColumnName="GTA_END_APPLY_DATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="INSTALLATIONS">
+            <EntityTypeMapping TypeName="BCTOTA2PAModel.INSTALLATIONS">
+              <MappingFragment StoreEntitySet="INSTALLATIONS">
+                <ScalarProperty Name="INS_ID" ColumnName="INS_ID" />
+                <ScalarProperty Name="INS_DESCRIPTION" ColumnName="INS_DESCRIPTION" />
+                <ScalarProperty Name="INS_SHORTDESC" ColumnName="INS_SHORTDESC" />
+                <ScalarProperty Name="INS_COU_ID" ColumnName="INS_COU_ID" />
+                <ScalarProperty Name="INS_CUR_ID" ColumnName="INS_CUR_ID" />
+                <ScalarProperty Name="INS_TIMEZONE_ID" ColumnName="INS_TIMEZONE_ID" />
+                <ScalarProperty Name="INS_SECOND1_CUR_ID" ColumnName="INS_SECOND1_CUR_ID" />
+                <ScalarProperty Name="INS_SECOND2_CUR_ID" ColumnName="INS_SECOND2_CUR_ID" />
+                <ScalarProperty Name="INS_INFO_SCREEN_IMAGE_WIDTH" ColumnName="INS_INFO_SCREEN_IMAGE_WIDTH" />
+                <ScalarProperty Name="INS_INFO_SCREEN_IMAGE_HEIGHT" ColumnName="INS_INFO_SCREEN_IMAGE_HEIGHT" />
+                <ScalarProperty Name="INS_INFO_SCREEN_IMAGE_OFFSET_X" ColumnName="INS_INFO_SCREEN_IMAGE_OFFSET_X" />
+                <ScalarProperty Name="INS_INFO_SCREEN_IMAGE_OFFSET_Y" ColumnName="INS_INFO_SCREEN_IMAGE_OFFSET_Y" />
+                <ScalarProperty Name="INS_WAKEUP_SCREEN_IMAGE_WIDTH" ColumnName="INS_WAKEUP_SCREEN_IMAGE_WIDTH" />
+                <ScalarProperty Name="INS_WAKEUP_SCREEN_IMAGE_HEIGHT" ColumnName="INS_WAKEUP_SCREEN_IMAGE_HEIGHT" />
+                <ScalarProperty Name="INS_WAKEUP_SCREEN_IMAGE_OFFSET_X" ColumnName="INS_WAKEUP_SCREEN_IMAGE_OFFSET_X" />
+                <ScalarProperty Name="INS_WAKEUP_SCREEN_IMAGE_OFFSET_Y" ColumnName="INS_WAKEUP_SCREEN_IMAGE_OFFSET_Y" />
+                <ScalarProperty Name="INS_RECHARGE_MIN_ALLOWED" ColumnName="INS_RECHARGE_MIN_ALLOWED" />
+                <ScalarProperty Name="INS_RECHARGE_MAX_ALLOWED" ColumnName="INS_RECHARGE_MAX_ALLOWED" />
+                <ScalarProperty Name="INS_WALLET_MAX_BALANCE" ColumnName="INS_WALLET_MAX_BALANCE" />
+                <ScalarProperty Name="INS_RECHARGE_INCREMENTS" ColumnName="INS_RECHARGE_INCREMENTS" />
+                <ScalarProperty Name="INS_RECHARGE_DECREMENTS" ColumnName="INS_RECHARGE_DECREMENTS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PARKING_SPACES">
+            <EntityTypeMapping TypeName="BCTOTA2PAModel.PARKING_SPACES">
+              <MappingFragment StoreEntitySet="PARKING_SPACES">
+                <ScalarProperty Name="PSP_ID" ColumnName="PSP_ID" />
+                <ScalarProperty Name="PSP_DESCRIPTION" ColumnName="PSP_DESCRIPTION" />
+                <ScalarProperty Name="PSP_EXT_ID" ColumnName="PSP_EXT_ID" />
+                <ScalarProperty Name="PSP_PHY_ID" ColumnName="PSP_PHY_ID" />
+                <ScalarProperty Name="PSP_PHY_STATUS" ColumnName="PSP_PHY_STATUS" />
+                <ScalarProperty Name="PSP_PHY_STATUS_UTC_DATE" ColumnName="PSP_PHY_STATUS_UTC_DATE" />
+                <ScalarProperty Name="PSP_LOG_STATUS" ColumnName="PSP_LOG_STATUS" />
+                <ScalarProperty Name="PSP_LOG_STATUS_UTC_DATE" ColumnName="PSP_LOG_STATUS_UTC_DATE" />
+                <ScalarProperty Name="PSP_COMM_STATUS" ColumnName="PSP_COMM_STATUS" />
+                <ScalarProperty Name="PSP_COMM_UTC_DATE" ColumnName="PSP_COMM_UTC_DATE" />
+                <ScalarProperty Name="PSP_STSE_ID" ColumnName="PSP_STSE_ID" />
+                <ScalarProperty Name="PSP_GRP_ID" ColumnName="PSP_GRP_ID" />
+                <ScalarProperty Name="PSP_GPS_LATITUDE" ColumnName="PSP_GPS_LATITUDE" />
+                <ScalarProperty Name="PSP_GPS_LONGITUDE" ColumnName="PSP_GPS_LONGITUDE" />
+                <ScalarProperty Name="PSP_OPE_ID" ColumnName="PSP_OPE_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UNIT_ALARM_TYPES">
+            <EntityTypeMapping TypeName="BCTOTA2PAModel.UNIT_ALARM_TYPES">
+              <MappingFragment StoreEntitySet="UNIT_ALARM_TYPES">
+                <ScalarProperty Name="UAT_ID" ColumnName="UAT_ID" />
+                <ScalarProperty Name="UAT_NAME" ColumnName="UAT_NAME" />
+                <ScalarProperty Name="UAT_DESCRIPTION" ColumnName="UAT_DESCRIPTION" />
+                <ScalarProperty Name="UAT_HW_MASK" ColumnName="UAT_HW_MASK" />
+                <ScalarProperty Name="UAT_LEVEL" ColumnName="UAT_LEVEL" />
+                <ScalarProperty Name="UAT_COLOR" ColumnName="UAT_COLOR" />
+                <ScalarProperty Name="UAT_SALES_MODE" ColumnName="UAT_SALES_MODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UNITS">
+            <EntityTypeMapping TypeName="BCTOTA2PAModel.UNITS">
+              <MappingFragment StoreEntitySet="UNITS">
+                <ScalarProperty Name="UNI_ID" ColumnName="UNI_ID" />
+                <ScalarProperty Name="UNI_EXTERNAL_ID" ColumnName="UNI_EXTERNAL_ID" />
+                <ScalarProperty Name="UNI_DESCRIPTION" ColumnName="UNI_DESCRIPTION" />
+                <ScalarProperty Name="UNI_SW_VERSION" ColumnName="UNI_SW_VERSION" />
+                <ScalarProperty Name="UNI_HW_VERSION" ColumnName="UNI_HW_VERSION" />
+                <ScalarProperty Name="UNI_IP" ColumnName="UNI_IP" />
+                <ScalarProperty Name="UNI_DATE" ColumnName="UNI_DATE" />
+                <ScalarProperty Name="UNI_STATUS" ColumnName="UNI_STATUS" />
+                <ScalarProperty Name="UNI_STATUS_DATE" ColumnName="UNI_STATUS_DATE" />
+                <ScalarProperty Name="UNI_USET_ID" ColumnName="UNI_USET_ID" />
+                <ScalarProperty Name="UNI_ULIT_ID" ColumnName="UNI_ULIT_ID" />
+                <ScalarProperty Name="UNI_INS_ID" ColumnName="UNI_INS_ID" />
+                <ScalarProperty Name="UNI_CMD_SERVICE" ColumnName="UNI_CMD_SERVICE" />
+                <ScalarProperty Name="UNI_CMD_STATUS" ColumnName="UNI_CMD_STATUS" />
+                <ScalarProperty Name="UNI_CMD_STATUS_DATE" ColumnName="UNI_CMD_STATUS_DATE" />
+                <ScalarProperty Name="UNI_INCOMPLETION_FLAG" ColumnName="UNI_INCOMPLETION_FLAG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UNITS_GROUPS">
+            <EntityTypeMapping TypeName="BCTOTA2PAModel.UNITS_GROUPS">
+              <MappingFragment StoreEntitySet="UNITS_GROUPS">
+                <ScalarProperty Name="UNGR_ID" ColumnName="UNGR_ID" />
+                <ScalarProperty Name="UNGR_DESCRIPTION" ColumnName="UNGR_DESCRIPTION" />
+                <ScalarProperty Name="UNGR_UNI_ID" ColumnName="UNGR_UNI_ID" />
+                <ScalarProperty Name="UNGR_GRP_ID" ColumnName="UNGR_GRP_ID" />
+                <ScalarProperty Name="UNGR_INI_APPLY_DATE" ColumnName="UNGR_INI_APPLY_DATE" />
+                <ScalarProperty Name="UNGR_END_APPLY_DATE" ColumnName="UNGR_END_APPLY_DATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UNITS_LOGICAL_PARKING_SPACES">
+            <EntityTypeMapping TypeName="BCTOTA2PAModel.UNITS_LOGICAL_PARKING_SPACES">
+              <MappingFragment StoreEntitySet="UNITS_LOGICAL_PARKING_SPACES">
+                <ScalarProperty Name="UNLS_ID" ColumnName="UNLS_ID" />
+                <ScalarProperty Name="UNLS_UNI_ID" ColumnName="UNLS_UNI_ID" />
+                <ScalarProperty Name="UNLS_PSP_ID" ColumnName="UNLS_PSP_ID" />
+                <ScalarProperty Name="UNLS_END_APPLY_DATE" ColumnName="UNLS_END_APPLY_DATE" />
+                <ScalarProperty Name="UNLS_INI_APPLY_DATE" ColumnName="UNLS_INI_APPLY_DATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UNITS_PHYSICAL_PARKING_SPACES">
+            <EntityTypeMapping TypeName="BCTOTA2PAModel.UNITS_PHYSICAL_PARKING_SPACES">
+              <MappingFragment StoreEntitySet="UNITS_PHYSICAL_PARKING_SPACES">
+                <ScalarProperty Name="UNPS_ID" ColumnName="UNPS_ID" />
+                <ScalarProperty Name="UNPS_UNI_ID" ColumnName="UNPS_UNI_ID" />
+                <ScalarProperty Name="UNPS_PSP_ID" ColumnName="UNPS_PSP_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UNITS_SYNC_VERSIONS">
+            <EntityTypeMapping TypeName="BCTOTA2PAModel.UNITS_SYNC_VERSIONS">
+              <MappingFragment StoreEntitySet="UNITS_SYNC_VERSIONS">
+                <ScalarProperty Name="USYV_ID" ColumnName="USYV_ID" />
+                <ScalarProperty Name="USYV_UNI_ID" ColumnName="USYV_UNI_ID" />
+                <ScalarProperty Name="USYV_TABLE_NAME" ColumnName="USYV_TABLE_NAME" />
+                <ScalarProperty Name="USYV_CURR_VERSION" ColumnName="USYV_CURR_VERSION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
