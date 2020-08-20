@@ -12,32 +12,27 @@ namespace GeneraXML.Modelo
     using System;
     using System.Collections.Generic;
     
-    public partial class GROUPS_TYPES
+    public partial class TARIFFS
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public GROUPS_TYPES()
+        public TARIFFS()
         {
-            this.GROUPS_TYPES_ASSIGNATIONS = new HashSet<GROUPS_TYPES_ASSIGNATIONS>();
-            this.TARIFF_CONSTRAINT_ENTRIES = new HashSet<TARIFF_CONSTRAINT_ENTRIES>();
             this.TARIFFS_APPLICATION_RULES = new HashSet<TARIFFS_APPLICATION_RULES>();
             this.TARIFFS_DEFINITION_RULES = new HashSet<TARIFFS_DEFINITION_RULES>();
-            this.UNITS_STATUS = new HashSet<UNITS_STATUS>();
         }
     
-        public decimal GRPT_ID { get; set; }
-        public decimal GRPT_INS_ID { get; set; }
-        public string GRPT_DESCRIPTION { get; set; }
+        public decimal TAR_ID { get; set; }
+        public string TAR_DESCRIPTION { get; set; }
+        public decimal TAR_INS_ID { get; set; }
+        public string TAR_QUERY_EXT_ID { get; set; }
+        public string TAR_EXT1_ID { get; set; }
+        public string TAR_EXT2_ID { get; set; }
+        public string TAR_EXT3_ID { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<GROUPS_TYPES_ASSIGNATIONS> GROUPS_TYPES_ASSIGNATIONS { get; set; }
         public virtual INSTALLATIONS INSTALLATIONS { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TARIFF_CONSTRAINT_ENTRIES> TARIFF_CONSTRAINT_ENTRIES { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TARIFFS_APPLICATION_RULES> TARIFFS_APPLICATION_RULES { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TARIFFS_DEFINITION_RULES> TARIFFS_DEFINITION_RULES { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UNITS_STATUS> UNITS_STATUS { get; set; }
     }
 }

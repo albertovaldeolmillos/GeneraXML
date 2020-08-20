@@ -17,9 +17,14 @@ namespace GeneraXML.Modelo
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public UNITS()
         {
+            this.TARIFFS_APPLICATION_RULES = new HashSet<TARIFFS_APPLICATION_RULES>();
             this.UNITS_GROUPS = new HashSet<UNITS_GROUPS>();
+            this.UNITS_LITERALS_LANGUAGES_EXCEPTIONS = new HashSet<UNITS_LITERALS_LANGUAGES_EXCEPTIONS>();
+            this.UNITS_LOCATIONS = new HashSet<UNITS_LOCATIONS>();
             this.UNITS_LOGICAL_PARKING_SPACES = new HashSet<UNITS_LOGICAL_PARKING_SPACES>();
             this.UNITS_PHYSICAL_PARKING_SPACES = new HashSet<UNITS_PHYSICAL_PARKING_SPACES>();
+            this.UNITS_SETTINGS_DETAILS_EXCEPTIONS = new HashSet<UNITS_SETTINGS_DETAILS_EXCEPTIONS>();
+            this.UNITS_STATUS = new HashSet<UNITS_STATUS>();
             this.UNITS_SYNC_VERSIONS = new HashSet<UNITS_SYNC_VERSIONS>();
         }
     
@@ -42,11 +47,23 @@ namespace GeneraXML.Modelo
     
         public virtual INSTALLATIONS INSTALLATIONS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TARIFFS_APPLICATION_RULES> TARIFFS_APPLICATION_RULES { get; set; }
+        public virtual UNIT_LITERALS UNIT_LITERALS { get; set; }
+        public virtual UNIT_SETTINGS UNIT_SETTINGS { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UNITS_GROUPS> UNITS_GROUPS { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UNITS_LITERALS_LANGUAGES_EXCEPTIONS> UNITS_LITERALS_LANGUAGES_EXCEPTIONS { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UNITS_LOCATIONS> UNITS_LOCATIONS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UNITS_LOGICAL_PARKING_SPACES> UNITS_LOGICAL_PARKING_SPACES { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UNITS_PHYSICAL_PARKING_SPACES> UNITS_PHYSICAL_PARKING_SPACES { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UNITS_SETTINGS_DETAILS_EXCEPTIONS> UNITS_SETTINGS_DETAILS_EXCEPTIONS { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UNITS_STATUS> UNITS_STATUS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UNITS_SYNC_VERSIONS> UNITS_SYNC_VERSIONS { get; set; }
     }

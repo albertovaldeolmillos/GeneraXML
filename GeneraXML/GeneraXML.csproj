@@ -51,25 +51,52 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Modelo\COUNTRIES.cs">
-      <DependentUpon>ModeloInfraestructure.tt</DependentUpon>
+      <DependentUpon>ModeloCompleto.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\CURRENCIES.cs">
-      <DependentUpon>ModeloInfraestructure.tt</DependentUpon>
+      <DependentUpon>ModeloCompleto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\DAY_EXCEPTIONS.cs">
+      <DependentUpon>ModeloCompleto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\DAY_HOURS_INTERVALS.cs">
+      <DependentUpon>ModeloCompleto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\DAY_TYPES.cs">
+      <DependentUpon>ModeloCompleto.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\GROUPS.cs">
-      <DependentUpon>ModeloInfraestructure.tt</DependentUpon>
+      <DependentUpon>ModeloCompleto.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\GROUPS_HIERARCHY.cs">
-      <DependentUpon>ModeloInfraestructure.tt</DependentUpon>
+      <DependentUpon>ModeloCompleto.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\GROUPS_TYPES.cs">
-      <DependentUpon>ModeloInfraestructure.tt</DependentUpon>
+      <DependentUpon>ModeloCompleto.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\GROUPS_TYPES_ASSIGNATIONS.cs">
-      <DependentUpon>ModeloInfraestructure.tt</DependentUpon>
+      <DependentUpon>ModeloCompleto.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\INSTALLATIONS.cs">
-      <DependentUpon>ModeloInfraestructure.tt</DependentUpon>
+      <DependentUpon>ModeloCompleto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\LANGUAGES.cs">
+      <DependentUpon>ModeloCompleto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\ModeloCompleto.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModeloCompleto.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\ModeloCompleto.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModeloCompleto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\ModeloCompleto.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModeloCompleto.edmx</DependentUpon>
     </Compile>
     <Compile Include="Modelo\ModeloInfraestructure.Context.cs">
       <AutoGen>True</AutoGen>
@@ -87,26 +114,98 @@
       <DependentUpon>ModeloInfraestructure.edmx</DependentUpon>
     </Compile>
     <Compile Include="Modelo\PARKING_SPACES.cs">
-      <DependentUpon>ModeloInfraestructure.tt</DependentUpon>
+      <DependentUpon>ModeloCompleto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\RATE_BEHAVIOR_SETS.cs">
+      <DependentUpon>ModeloCompleto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\RATE_BEHAVIOR_STEP.cs">
+      <DependentUpon>ModeloCompleto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\RATE_STEPS.cs">
+      <DependentUpon>ModeloCompleto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\RATE_TYPES.cs">
+      <DependentUpon>ModeloCompleto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\TARIFFS.cs">
+      <DependentUpon>ModeloCompleto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\TARIFFS_APPLICATION_RULES.cs">
+      <DependentUpon>ModeloCompleto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\TARIFFS_DEFINITION_RULES.cs">
+      <DependentUpon>ModeloCompleto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\TARIFF_CONSTRAINTS_SETS.cs">
+      <DependentUpon>ModeloCompleto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\TARIFF_CONSTRAINT_ENTRIES.cs">
+      <DependentUpon>ModeloCompleto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\TICKETS_TYPES_FEATURES.cs">
+      <DependentUpon>ModeloCompleto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\TICKET_TYPES.cs">
+      <DependentUpon>ModeloCompleto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\UNITS_LITERALS_LANGUAGES_EXCEPTIONS.cs">
+      <DependentUpon>ModeloCompleto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\UNITS_LOCATIONS.cs">
+      <DependentUpon>ModeloCompleto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\UNITS_SETTINGS_DETAILS_EXCEPTIONS.cs">
+      <DependentUpon>ModeloCompleto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\UNITS_STATUS.cs">
+      <DependentUpon>ModeloCompleto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\UNIT_LITERALS.cs">
+      <DependentUpon>ModeloCompleto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\UNIT_LITERALS_LANGUAGES.cs">
+      <DependentUpon>ModeloCompleto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\UNIT_LITERAL_KEYS.cs">
+      <DependentUpon>ModeloCompleto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\UNIT_LITERAL_VERSIONS.cs">
+      <DependentUpon>ModeloCompleto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\UNIT_SETTINGS.cs">
+      <DependentUpon>ModeloCompleto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\UNIT_SETTINGS_DETAILS.cs">
+      <DependentUpon>ModeloCompleto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\UNIT_SETTING_PARAMETERS.cs">
+      <DependentUpon>ModeloCompleto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\UNIT_SETTING_SECTIONS.cs">
+      <DependentUpon>ModeloCompleto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\UNIT_SETTING_VERSIONS.cs">
+      <DependentUpon>ModeloCompleto.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Modelo\UNITS.cs">
-      <DependentUpon>ModeloInfraestructure.tt</DependentUpon>
+      <DependentUpon>ModeloCompleto.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\UNITS_GROUPS.cs">
-      <DependentUpon>ModeloInfraestructure.tt</DependentUpon>
+      <DependentUpon>ModeloCompleto.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\UNITS_LOGICAL_PARKING_SPACES.cs">
-      <DependentUpon>ModeloInfraestructure.tt</DependentUpon>
+      <DependentUpon>ModeloCompleto.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\UNITS_PHYSICAL_PARKING_SPACES.cs">
-      <DependentUpon>ModeloInfraestructure.tt</DependentUpon>
+      <DependentUpon>ModeloCompleto.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\UNITS_SYNC_VERSIONS.cs">
-      <DependentUpon>ModeloInfraestructure.tt</DependentUpon>
+      <DependentUpon>ModeloCompleto.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\UNIT_ALARM_TYPES.cs">
-      <DependentUpon>ModeloInfraestructure.tt</DependentUpon>
+      <DependentUpon>ModeloCompleto.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -117,12 +216,29 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
+    <EntityDeploy Include="Modelo\ModeloCompleto.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModeloCompleto.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Modelo\ModeloCompleto.edmx.diagram">
+      <DependentUpon>ModeloCompleto.edmx</DependentUpon>
+    </None>
     <None Include="Modelo\ModeloInfraestructure.edmx.diagram">
       <DependentUpon>ModeloInfraestructure.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Modelo\ModeloCompleto.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModeloCompleto.edmx</DependentUpon>
+      <LastGenOutput>ModeloCompleto.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Modelo\ModeloCompleto.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModeloCompleto.edmx</DependentUpon>
+      <LastGenOutput>ModeloCompleto.cs</LastGenOutput>
+    </Content>
     <Content Include="Modelo\ModeloInfraestructure.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ModeloInfraestructure.Context.cs</LastGenOutput>

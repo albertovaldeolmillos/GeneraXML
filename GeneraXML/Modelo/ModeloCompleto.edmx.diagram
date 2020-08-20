@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ddbfe0c8f4af41e5af7aee36fea9ed28" Name="Diagram1">
+        <EntityTypeShape EntityType="BCTOTA2PAModeloCompleto.COUNTRIES" Width="1.5" PointX="2.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModeloCompleto.CURRENCIES" Width="1.5" PointX="0.5" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModeloCompleto.DAY_EXCEPTIONS" Width="1.5" PointX="9.5" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModeloCompleto.DAY_HOURS_INTERVALS" Width="1.5" PointX="7.25" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModeloCompleto.DAY_TYPES" Width="1.5" PointX="7.25" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModeloCompleto.GROUPS" Width="1.5" PointX="7.25" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModeloCompleto.GROUPS_HIERARCHY" Width="1.5" PointX="9.5" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModeloCompleto.GROUPS_TYPES" Width="1.5" PointX="7.25" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModeloCompleto.GROUPS_TYPES_ASSIGNATIONS" Width="1.5" PointX="14.5" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModeloCompleto.INSTALLATIONS" Width="1.5" PointX="5" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModeloCompleto.LANGUAGES" Width="1.5" PointX="17.25" PointY="33.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModeloCompleto.PARKING_SPACES" Width="1.5" PointX="9.5" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModeloCompleto.RATE_BEHAVIOR_SETS" Width="1.5" PointX="7.25" PointY="22.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModeloCompleto.RATE_BEHAVIOR_STEP" Width="1.5" PointX="11.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModeloCompleto.RATE_STEPS" Width="1.5" PointX="9.5" PointY="27.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModeloCompleto.RATE_TYPES" Width="1.5" PointX="7.25" PointY="25.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModeloCompleto.TARIFF_CONSTRAINT_ENTRIES" Width="1.5" PointX="14.5" PointY="25.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModeloCompleto.TARIFF_CONSTRAINTS_SETS" Width="1.5" PointX="7.25" PointY="29.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModeloCompleto.TARIFFS" Width="1.5" PointX="7.25" PointY="32.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModeloCompleto.TARIFFS_APPLICATION_RULES" Width="1.5" PointX="15.5" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModeloCompleto.TARIFFS_DEFINITION_RULES" Width="1.5" PointX="12.5" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModeloCompleto.TICKET_TYPES" Width="1.5" PointX="7.25" PointY="36.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModeloCompleto.TICKETS_TYPES_FEATURES" Width="1.5" PointX="9.5" PointY="23" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModeloCompleto.UNIT_ALARM_TYPES" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModeloCompleto.UNIT_LITERAL_KEYS" Width="1.5" PointX="17.25" PointY="39.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModeloCompleto.UNIT_LITERAL_VERSIONS" Width="1.5" PointX="15" PointY="39.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModeloCompleto.UNIT_LITERALS" Width="1.5" PointX="15" PointY="32.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModeloCompleto.UNIT_LITERALS_LANGUAGES" Width="1.5" PointX="19.5" PointY="35.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModeloCompleto.UNIT_SETTING_PARAMETERS" Width="1.5" PointX="20.25" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModeloCompleto.UNIT_SETTING_SECTIONS" Width="1.5" PointX="18" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModeloCompleto.UNIT_SETTING_VERSIONS" Width="1.5" PointX="18" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModeloCompleto.UNIT_SETTINGS" Width="1.5" PointX="15" PointY="35.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModeloCompleto.UNIT_SETTINGS_DETAILS" Width="1.5" PointX="22.5" PointY="24.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModeloCompleto.UNITS" Width="1.5" PointX="17.25" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModeloCompleto.UNITS_GROUPS" Width="1.5" PointX="15.5" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModeloCompleto.UNITS_LITERALS_LANGUAGES_EXCEPTIONS" Width="1.5" PointX="19.5" PointY="27.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModeloCompleto.UNITS_LOCATIONS" Width="1.5" PointX="19.5" PointY="31" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModeloCompleto.UNITS_LOGICAL_PARKING_SPACES" Width="1.5" PointX="11.75" PointY="24.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModeloCompleto.UNITS_PHYSICAL_PARKING_SPACES" Width="1.5" PointX="17.75" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModeloCompleto.UNITS_SETTINGS_DETAILS_EXCEPTIONS" Width="1.5" PointX="22.5" PointY="27.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCTOTA2PAModeloCompleto.UNITS_STATUS" Width="1.5" PointX="12.5" PointY="5.25" IsExpanded="true" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_COUNTRIES_CURRENCIES" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_INSTALLATIONS_COUNTRIES" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_INSTALLATIONS_CURRENCIES" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_DAY_EXCEPTIONS_DAY_TYPES" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_RATE_BEHAVIOR_STEP_DAY_EXCEPTIONS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_DAY_HOURS_INTERVALS_INSTALLATIONS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_RATE_BEHAVIOR_STEP_DAY_HOURS_INTERVALS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_TARIFFS_APPLICATION_RULES_DAY_HOURS_INTERVALS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_TARIFFS_DEFINITION_RULES_DAY_HOURS_INTERVALS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_UNITS_STATUS_DAY_HOURS_INTERVALS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_DAY_TYPES_INSTALLATIONS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_RATE_BEHAVIOR_STEP_DAY_TYPES" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_TARIFFS_APPLICATION_RULES_DAY_TYPES" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_TARIFFS_DEFINITION_RULES_DAY_TYPES" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_TICKETS_TYPES_FEATURES_DAY_TYPES" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_UNITS_STATUS_DAY_TYPES" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_GROUPS_GROUPS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_GROUPS_HIERARCHY_CHILD_GROUPS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_GROUPS_HIERARCHY_PARENT_GROUPS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_GROUPS_INSTALLATIONS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_GROUPS_TYPES_ASSIGNATIONS_GROUPS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_PARKING_SPACES_GROUPS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_TARIFF_CONSTRAINT_ENTRIES_GROUPS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_TARIFFS_APPLICATION_RULES_GROUPS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_TARIFFS_IN_GROUPS_GROUPS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_UNITS_GROUPS_GROUPS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_UNITS_STATUS_GROUPS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_GROUPS_TYPES_ASSIGNATIONS_GROUPS_TYPES" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_GROUPS_TYPES_INSTALLATIONS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_TARIFF_CONSTRAINT_ENTRIES_GROUPS_TYPES" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_TARIFFS_APPLICATION_RULES_GROUPS_TYPES" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_TARIFFS_IN_GROUPS_GROUPS_TYPES" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_UNITS_STATUS_GROUPS_TYPES" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_RATE_BEHAVIOR_SETS_INSTALLATIONS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_RATE_TYPES_INSTALLATIONS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_TARIFF_CONSTRAINTS_SETS_INSTALLATIONS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_TARIFFS_INSTALLATIONS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_TICKET_TYPES_INSTALLATIONS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_UNITS_INSTALLATIONS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_LITERAL_LANGUAGES_LANGUAGES" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_UNITS_LITERALS_LANGUAGES_EXCEPTIONS_LANGUAGES" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_UNITS_LOGICAL_PARKING_SPACES_PARKING_SPACES" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_UNITS_PHYSICAL_PARKING_SPACES_PARKING_SPACES" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_RATE_BEHAVIOR_STEP_RATE_BEHAVIOR_SETS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_TARIFFS_DEFINITION_RULES_RATE_BEHAVIOR_SETS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_RATE_BEHAVIOR_STEP_RATE_TYPES" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_RATE_STEPS_RATE_TYPES" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_RATE_TYPES_RATE_STEPS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_TARIFF_CONSTRAINT_ENTRIES_TARIFF_CONSTRAINTS_SETS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_TARIFFS_APPLICATION_RULES_TARIFF_CONSTRAINTS_SETS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_TARIFFS_DEFINITION_RULES_TARIFF_RESTRICTION_SETS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_TARIFFS_APPLICATION_RULES_TARIFFS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_TARIFFS_IN_GROUPS_TARIFFS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_TARIFFS_APPLICATION_RULES_UNITS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_TICKETS_TYPES_FEATURES_TICKET_TYPES" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_UNIT_LITERAL_KEYS_UNIT_LITERAL_VERSIONS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_UNIT_LITERALS_LANGUAGES_UNIT_LITERAL_KEYS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_UNITS_LITERALS_LANGUAGES_EXCEPTIONS_UNIT_LITERAL_KEYS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_UNIT_LITERALS_LANGUAGES_UNIT_LITERALS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_UNIT_LITERALS_UNIT_LITERALS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_UNITS_UNIT_LITERALS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_UNIT_SETTING_PARAMETERS_UNIT_SETTING_SECTIONS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_UNIT_SETTING_PARAMETERS_UNIT_SETTING_VERSIONS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_UNIT_SETTINGS_DETAILS_UNIT_SETTING_PARAMETERS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_UNITS_SETTINGS_DETAILS_EXCEPTIONS_UNIT_SETTING_PARAMETERS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_UNIT_SETTINGS_DETAILS_UNIT_SETTINGS1" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_UNIT_SETTINGS_UNIT_SETTINGS1" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_UNITS_UNIT_SETTINGS1" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_UNITS_GROUPS_UNITS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_UNITS_LITERALS_LANGUAGES_EXCEPTIONS_UNITS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_UNITS_LOCATIONS_UNITS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_UNITS_LOGICAL_PARKING_SPACES_UNITS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_UNITS_PHYSICAL_PARKING_SPACES_UNITS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_UNITS_SETTINGS_DETAILS_EXCEPTIONS_UNITS" ManuallyRouted="false" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_UNITS_STATUS_UNITS" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="BCTOTA2PAModeloCompleto.UNITS_SYNC_VERSIONS" Width="1.5" PointX="19.5" PointY="24" />
+        <AssociationConnector Association="BCTOTA2PAModeloCompleto.FK_UNITS_SYNC_VERSIONS_UNITS" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

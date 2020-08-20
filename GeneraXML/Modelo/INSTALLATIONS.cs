@@ -17,8 +17,15 @@ namespace GeneraXML.Modelo
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public INSTALLATIONS()
         {
+            this.DAY_HOURS_INTERVALS = new HashSet<DAY_HOURS_INTERVALS>();
+            this.DAY_TYPES = new HashSet<DAY_TYPES>();
             this.GROUPS = new HashSet<GROUPS>();
             this.GROUPS_TYPES = new HashSet<GROUPS_TYPES>();
+            this.RATE_BEHAVIOR_SETS = new HashSet<RATE_BEHAVIOR_SETS>();
+            this.RATE_TYPES = new HashSet<RATE_TYPES>();
+            this.TARIFF_CONSTRAINTS_SETS = new HashSet<TARIFF_CONSTRAINTS_SETS>();
+            this.TARIFFS = new HashSet<TARIFFS>();
+            this.TICKET_TYPES = new HashSet<TICKET_TYPES>();
             this.UNITS = new HashSet<UNITS>();
         }
     
@@ -47,9 +54,23 @@ namespace GeneraXML.Modelo
         public virtual COUNTRIES COUNTRIES { get; set; }
         public virtual CURRENCIES CURRENCIES { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DAY_HOURS_INTERVALS> DAY_HOURS_INTERVALS { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DAY_TYPES> DAY_TYPES { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GROUPS> GROUPS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GROUPS_TYPES> GROUPS_TYPES { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<RATE_BEHAVIOR_SETS> RATE_BEHAVIOR_SETS { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<RATE_TYPES> RATE_TYPES { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TARIFF_CONSTRAINTS_SETS> TARIFF_CONSTRAINTS_SETS { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TARIFFS> TARIFFS { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TICKET_TYPES> TICKET_TYPES { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UNITS> UNITS { get; set; }
     }
