@@ -13,7 +13,6 @@ namespace ConsoleGeneraXML
     {
         static void Main(string[] args)
         {
-            ConnectionStringSettingsCollection settings = ConfigurationManager.ConnectionStrings;
             using (BCTOTA2PAEntitiesCompleto dbContext = new BCTOTA2PAEntitiesCompleto())
             {
                 MetadataWorkspace metadata = ((IObjectContextAdapter)dbContext).ObjectContext.MetadataWorkspace;
@@ -79,7 +78,7 @@ namespace ConsoleGeneraXML
 
             xml.Add(xmlEntitiesArray);
 
-            xml.Save("PruebaInfraestructure.xml");
+            xml.Save(ConfigurationManager.AppSettings["InfraestructureXML"]);
         }
 
         /// <summary>
@@ -130,7 +129,7 @@ namespace ConsoleGeneraXML
 
             xml.Add(xmlEntitiesArray);
 
-            xml.Save("PruebaConfiguration.xml");
+            xml.Save(ConfigurationManager.AppSettings["ConfigurationXML"]);
         }
 
         /// <summary>
@@ -181,7 +180,7 @@ namespace ConsoleGeneraXML
 
             xml.Add(xmlEntitiesArray);
 
-            xml.Save("PruebaTariffs.xml");
+            xml.Save(ConfigurationManager.AppSettings["TariffsXML"]);
         }
 
         /// <summary>
