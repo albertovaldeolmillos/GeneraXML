@@ -338,3 +338,6 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+
+# Archivo ConnectionStrings.config (1 - incluir aqui el fichero, 2 - marcar en propiedades como 'copiar siempre', 3 - eliminar carpetas de obj y bin y recompilar)
+ConnectionStrings.config
