@@ -1,5 +1,6 @@
 ﻿using GeneraXML.Modelo;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.Entity.Core.Metadata.Edm;
 using System.Data.Entity.Infrastructure;
 using System.Globalization;
@@ -12,6 +13,7 @@ namespace ConsoleGeneraXML
     {
         static void Main(string[] args)
         {
+            ConnectionStringSettingsCollection settings = ConfigurationManager.ConnectionStrings;
             using (BCTOTA2PAEntitiesCompleto dbContext = new BCTOTA2PAEntitiesCompleto())
             {
                 MetadataWorkspace metadata = ((IObjectContextAdapter)dbContext).ObjectContext.MetadataWorkspace;

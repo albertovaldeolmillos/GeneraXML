@@ -220,6 +220,9 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModeloCompleto.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="ConnectionStrings.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Modelo\ModeloCompleto.edmx.diagram">
       <DependentUpon>ModeloCompleto.edmx</DependentUpon>
     </None>
