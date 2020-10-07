@@ -1,5 +1,7 @@
 ﻿using GeneraXML.Modelo;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Configuration;
 using System.Data.Entity.Core.Metadata.Edm;
 using System.Data.Entity.Infrastructure;
@@ -11,6 +13,32 @@ namespace ConsoleGeneraXML
 {
     class Program
     {
+        public static Dictionary<string, string> tablas_ids = new Dictionary<string, string>() { {"CURRENCIES", "CUR_ID" }, {"COUNTRIES", "COU_ID" }, {"INSTALLATIONS", "INS_ID" },
+            {"GROUPS_TYPES", "GRPT_ID" }, {"GROUPS_HIERARCHY", "GRHI_ID" }, {"GROUPS_TYPES_ASSIGNATIONS", "GTA_ID" }, {"GROUPS", "GRP_ID" }, {"UNITS", "UNI_ID" },
+            { "UNITS_PHYSICAL_PARKING_SPACES", "UNPS_ID" }, {"UNITS_LOGICAL_PARKING_SPACES", "UNLS_ID" }, {"UNITS_GROUPS", "UNGR_ID" },
+            {"PARKING_SPACES", "PSP_ID" }, {"UNIT_ALARM_TYPES", "UAT_ID" },
+            {"UNIT_LITERAL_VERSIONS", "ULV_ID" }, {"UNIT_LITERAL_KEYS", "ULK_ID" }, {"LANGUAGES", "LAN_ID" }, {"UNIT_LITERALS", "ULT_ID" },
+            {"UNITS_LITERALS_LANGUAGES_EXCEPTIONS", "UNIL_ID"}, {"UNIT_LITERALS_LANGUAGES", "ULTL_ID" }, { "UNIT_SETTING_VERSIONS", "USV_ID" },
+            {"UNIT_SETTINGS", "UST_ID" }, {"UNIT_SETTING_SECTIONS", "USS_ID" }, {"UNIT_SETTING_PARAMETERS", "USP_ID" },
+            {"UNITS_SETTINGS_DETAILS_EXCEPTIONS", "UNIS_ID" }, {"UNIT_SETTINGS_DETAILS", "USTD_ID" }, {"UNITS_STATUS", "UNST_ID" }, {"UNITS_LOCATIONS", "UNLO_ID" },
+            {"RATE_BEHAVIOR_SETS", "RBS_ID" }, {"TICKET_TYPES", "TITY_ID" }, {"TICKETS_TYPES_FEATURES", "TITF_ID" }, {"RATE_STEPS", "RAS_ID" },
+            {"TARIFF_CONSTRAINT_ENTRIES", "TCE_ID" }, {"TARIFFS_DEFINITION_RULES", "TARDR_ID" }, { "DAY_TYPES", "DAT_ID" }, {"RATE_TYPES", "RAT_ID" },
+            {"RATE_BEHAVIOR_STEP", "RBSS_ID" }, {"DAY_EXCEPTIONS", "DEX_ID" }, {"TARIFF_CONSTRAINTS_SETS", "TCS_ID" }, {"TARIFFS", "TAR_ID" },
+            {"TARIFFS_APPLICATION_RULES", "TAPR_ID" }, {"DAY_HOURS_INTERVALS", "DAH_ID" }  };
+
+        public static Dictionary<string, string> tablas_alias = new Dictionary<string, string>() { {"CURRENCIES", "Currency" }, {"COUNTRIES", "Country" }, {"INSTALLATIONS", "Installation" },
+            {"GROUPS_TYPES", "GroupsType" }, {"GROUPS_HIERARCHY", "GroupsHierarchy" }, {"GROUPS_TYPES_ASSIGNATIONS", "GroupsTypesAssignation" }, {"GROUPS", "Group" }, {"UNITS", "Unit" },
+            { "UNITS_PHYSICAL_PARKING_SPACES", "UnitsPhysicalParkingSpace" }, {"UNITS_LOGICAL_PARKING_SPACES", "UnitsLogicalParkingSpace" }, {"UNITS_GROUPS", "UnitsGroup" },
+            {"PARKING_SPACES", "ParkingSpace" }, {"UNIT_ALARM_TYPES", "UnitAlarmType" },
+            {"UNIT_LITERAL_VERSIONS", "UnitLiteralVersion" }, {"UNIT_LITERAL_KEYS", "UnitLiteralKey" }, {"LANGUAGES", "Language" }, {"UNIT_LITERALS", "UnitLiteral" },
+            {"UNITS_LITERALS_LANGUAGES_EXCEPTIONS", "UnitsLiteralsLanguagesException"}, {"UNIT_LITERALS_LANGUAGES", "UnitLiteralsLanguage" }, { "UNIT_SETTING_VERSIONS", "UnitSettingVersion" },
+            {"UNIT_SETTINGS", "UnitSetting" }, {"UNIT_SETTING_SECTIONS", "UnitSettingSection" }, {"UNIT_SETTING_PARAMETERS", "UnitSettingParameter" },
+            {"UNITS_SETTINGS_DETAILS_EXCEPTIONS", "UnitsSettingsDetailsException" }, {"UNIT_SETTINGS_DETAILS", "UnitSettingsDetail" }, {"UNITS_STATUS", "UnitsStatus" },{"UNITS_LOCATIONS", "UnitsLocation" },
+            {"RATE_BEHAVIOR_SETS", "RateBehaviorSet" }, {"TICKET_TYPES", "TicketType" }, {"TICKETS_TYPES_FEATURES", "TicketsTypesFeature" }, {"RATE_STEPS", "RateStep" },
+            {"TARIFF_CONSTRAINT_ENTRIES", "TariffConstraintEntry" }, {"TARIFFS_DEFINITION_RULES", "TariffsDefinitionRule" }, { "DAY_TYPES", "DayType" }, {"RATE_TYPES", "RateType" },
+            {"RATE_BEHAVIOR_STEP", "RateBehaviorStep" }, {"DAY_EXCEPTIONS", "DayException" }, {"TARIFF_CONSTRAINTS_SETS", "TariffConstraintsSet" }, {"TARIFFS", "Tariff" },
+            {"TARIFFS_APPLICATION_RULES", "TariffsApplicationRule" }, {"DAY_HOURS_INTERVALS", "DayHoursInterval" }  };
+
         static void Main(string[] args)
         {
             using (BCTOTA2PAEntitiesCompleto dbContext = new BCTOTA2PAEntitiesCompleto())
@@ -25,10 +53,212 @@ namespace ConsoleGeneraXML
                     .Where(s => !s.MetadataProperties.Contains("Type")
                     || s.MetadataProperties["Type"].ToString() == "Tables");
 
-                generaInfraestructureDatabaseXML(tables, dbContext);
-                generaConfigurationDatabaseXML(tables, dbContext);
-                generaTariffsDatabaseXML(tables, dbContext);
+                //generaInfraestructureDatabaseXML(tables, dbContext);
+                //generaConfigurationDatabaseXML(tables, dbContext);
+                //generaTariffsDatabaseXML(tables, dbContext);
+
+                //generaFicheroXML(tables, dbContext,"todoXML.xml",tablas_ids);
+
+                System.Collections.IDictionaryEnumerator tablasIdsEnum = tablas_ids.GetEnumerator();
+                int i = 0;
+                Dictionary<string, string> tablas_ids_INF = new Dictionary<string, string>();
+                Dictionary<string, string> tablas_ids_CON = new Dictionary<string, string>();
+                Dictionary<string, string> tablas_ids_TAR = new Dictionary<string, string>();
+                while (tablasIdsEnum.MoveNext()) 
+                { 
+                    if (i >= 0 && i < 13) tablas_ids_INF.Add(tablasIdsEnum.Key.ToString(), tablasIdsEnum.Value.ToString());
+                    if (i >= 13 && i < 27) tablas_ids_CON.Add(tablasIdsEnum.Key.ToString(), tablasIdsEnum.Value.ToString());
+                    if (i >= 27 && i < 41) tablas_ids_TAR.Add(tablasIdsEnum.Key.ToString(), tablasIdsEnum.Value.ToString());
+                    i++;
+                }
+                generaFicheroXML(tables, dbContext, ConfigurationManager.AppSettings["InfraestructureXML"], tablas_ids_INF);
+                generaFicheroXML(tables, dbContext, ConfigurationManager.AppSettings["ConfigurationXML"], tablas_ids_CON);
+                generaFicheroXML(tables, dbContext, ConfigurationManager.AppSettings["TariffsXML"], tablas_ids_TAR);
             }
+        }
+
+        /// <summary>
+        /// Genera un fichero XML a partir de un conjunto de nombres de tablas pasadas por parámetro
+        /// </summary>
+        /// <param name="tables">tablas</param>
+        /// <param name="dbContext">contexto</param>
+        /// <param name="fichDestino">nombre del fichero de destino</param>
+        /// <param name="tablas_ids_act">diccionario de nombres de tablas y sus ids</param>
+        public static void generaFicheroXML(IEnumerable<EntitySet> tables, BCTOTA2PAEntitiesCompleto dbContext, string fichDestino, Dictionary<string, string> tablas_ids_act)
+        {
+            XElement xml = new XElement("XmlDatabase",
+                new XAttribute(XNamespace.Xmlns + "xsd", "http://www.w3.org/2001/XMLSchema"),
+                new XAttribute(XNamespace.Xmlns + "xsi", "http://www.w3.org/2001/XMLSchema-instance"));
+
+            XElement xmlEntitiesArray = new XElement("EntitiesArray");
+            foreach (var tbl in tablas_ids_act)
+            {
+                EntitySet t = tables.Where(x => x.Name == tbl.Key).FirstOrDefault();
+                string nombreTabla = t.Name;
+                XElement xmlListsEntitiesDictionary = new XElement("ListsEntitiesDictionary");
+                XElement xmlEntityKey = new XElement("Key", tablas_alias[nombreTabla]);
+                XElement xmlEntityValue = new XElement("Value");
+
+                ReadOnlyMetadataCollection<EdmMember> keyMembers = t.ElementType.KeyMembers;
+                IEnumerable<ReferentialConstraint> arrFKs = t.EntityContainer.AssociationSets.SelectMany(x => x.ElementType.ReferentialConstraints).Where(z => z.ToRole.Name == t.Name);
+                IEnumerable<ReferentialConstraint> arrInverseFKs = t.EntityContainer.AssociationSets.SelectMany(x => x.ElementType.ReferentialConstraints).Where(z => z.FromRole.Name == t.Name);
+                ReadOnlyMetadataCollection<EdmMember> members = t.ElementType.Members;
+
+                var registros = ((IEnumerable<object>)dbContext.GetType().GetProperty(t.Name).GetValue(dbContext, null)).ToList();
+                foreach (var curr in registros)
+                {
+                    //var entry = dbContext.Entry(curr);
+                    XNamespace xsi = "http://www.w3.org/2001/XMLSchema-instance";
+                    XAttribute atr1 = new XAttribute(XNamespace.Xmlns + "xsi", xsi);
+                    XAttribute atr2 = new XAttribute(xsi + "type", tablas_alias[nombreTabla]);
+                    XAttribute atr3 = new XAttribute(xsi + "nil", "true");
+                    XElement xmlBaseEntity = new XElement("BaseEntity", atr1, atr2);
+                    atr1.Remove();
+
+                    foreach (var keymember in keyMembers)
+                    {
+                        var namePK = keymember.Name;
+
+                        XElement xmlFieldsPK = new XElement("FieldsPK");
+                        XElement xmlField = new XElement("string", convertString(namePK));
+                        xmlFieldsPK.Add(xmlField);
+                        xmlBaseEntity.Add(xmlFieldsPK);
+                    }
+
+                    XElement xmlFKs = new XElement("FKs");
+                    
+                    foreach (var fks in arrFKs)
+                    {
+                        var nameFK = fks.ToProperties.FirstOrDefault().Name;
+                        //var valueFK = entry.Property(nameFK).CurrentValue;
+                        var valueFK = curr.GetType().GetProperty(nameFK).GetValue(curr, null);
+
+                        XElement xmlFKInfo = new XElement("FKInfo");
+                        XElement xmlField = new XElement("Field", convertStringFK(nameFK));
+                        XElement xmlFieldId = new XElement("Id", valueFK);
+                        if (xmlFieldId.Value != "")
+                        {
+                            xmlFKInfo.Add(xmlField);
+                            xmlFKInfo.Add(xmlFieldId);
+                            xmlFKs.Add(xmlFKInfo);
+                        }
+                    }
+                    if (arrFKs.Any()) xmlBaseEntity.Add(xmlFKs);
+
+                    XElement xmlInverseFKs = new XElement("InverseFKs");
+                    foreach (var inversefks in arrInverseFKs)
+                    {
+                        //var dbMemberEntry = entry.Member(inversefks.ToRole.Name);
+                        var dbMemberEntry = curr.GetType().GetProperty(inversefks.ToRole.Name).GetValue(curr, null);
+                        var dbMemberEntryType = dbMemberEntry.GetType();
+                        var nameInverseFK = inversefks.ToRole.Name;
+                        var valueInverseFK = "";
+                        
+
+                        if (dbMemberEntryType.Namespace == "System.Data.Entity.DynamicProxies")
+                        {
+                            //var xx = entry.Reference(inversefks.ToRole.Name).CurrentValue;
+                            //valueInverseFK = "" + dbContext.Entry(xx).Property(tablas_ids[nameInverseFK]).CurrentValue;
+                            valueInverseFK = "" + dbMemberEntry.GetType().GetProperty(tablas_ids[nameInverseFK]).GetValue(dbMemberEntry, null);
+
+                        }
+                        else if (dbMemberEntryType.Namespace == "System.Collections.Generic")
+                        {
+                            //var coll = entry.Collection(inversefks.ToRole.Name).CurrentValue;
+                            var coll = ((IEnumerable<object>)dbMemberEntry).ToList();
+                            if (((IEnumerable<object>)coll).Count() > 0)
+                            {
+                                var exc = nameInverseFK;
+                                if (exc == "GROUPS1") exc = "GROUPS";
+                                if (exc == "UNIT_LITERALS1") exc = "UNIT_LITERALS";
+                                if (exc == "UNIT_SETTINGS1") exc = "UNIT_SETTINGS";
+                                if (exc == "RATE_TYPES1") exc = "RATE_TYPES";
+                                var idNameInverseFK = tablas_ids[exc];
+                                var strInverseFKsIdsCSV = "";
+                                foreach (var xx in ((IEnumerable<object>)coll))
+                                {
+                                    //var id = dbContext.Entry(xx).Property(idNameInverseFK).CurrentValue;
+                                    var id = xx.GetType().GetProperty(idNameInverseFK).GetValue(xx, null); 
+                                    strInverseFKsIdsCSV = strInverseFKsIdsCSV + id + ",";
+                                }
+                                if (strInverseFKsIdsCSV.Length > 0) strInverseFKsIdsCSV = strInverseFKsIdsCSV.Substring(0, strInverseFKsIdsCSV.Length - 1);
+                                valueInverseFK = strInverseFKsIdsCSV;
+                            }
+                        }
+                        nameInverseFK = excepcionesDeNombresInexplicables(t, inversefks);
+                        XElement xmlFKInfo = new XElement("InverseFKInfo");
+                        XElement xmlField = new XElement("Field", nameInverseFK);
+                        XElement xmlFieldId = new XElement("IdsString", valueInverseFK);
+                        if (xmlFieldId.Value != "")
+                        {
+                            xmlFKInfo.Add(xmlField);
+                            xmlFKInfo.Add(xmlFieldId);
+                            xmlInverseFKs.Add(xmlFKInfo);
+                        }
+
+                    }
+                    xmlBaseEntity.Add(xmlInverseFKs);
+
+                    foreach (var member in members)
+                    {
+                        var nameItem = member.Name;
+                        //var valueItem = entry.Property(member.Name).CurrentValue;
+                        var valueItem = curr.GetType().GetProperty(member.Name).GetValue(curr, null);
+                        if (valueItem?.GetType() == typeof(DateTime))
+                            valueItem = ((DateTime?)valueItem)?.ToString("yyyy-MM-ddTHH:mm:ssK");
+                        if (valueItem?.GetType() == typeof(decimal))
+                            valueItem = ((decimal?)valueItem)?.ToString(CultureInfo.InvariantCulture);
+
+                        if ((member.Name == "UNI_HW_VERSION")) valueItem = "";//Excepcion rarísima. Casca por los datos en la BD.
+
+                        //Excluimos las FKs
+                        if (!arrFKs.Where(x => x.ToProperties.FirstOrDefault().Name == nameItem).Any())
+                        {
+                            XElement xmlMember = new XElement(convertString(nameItem), valueItem);
+                            xmlBaseEntity.Add(xmlMember);
+                            if (xmlMember.Value == "")
+                            {
+                                xmlMember.ReplaceWith(new XElement(convertString(nameItem), atr3));
+                            }
+                        }
+                    }
+
+                    xmlEntityValue.Add(xmlBaseEntity);
+                }
+
+                xmlListsEntitiesDictionary.Add(xmlEntityKey);
+                xmlListsEntitiesDictionary.Add(xmlEntityValue);
+                xmlEntitiesArray.Add(xmlListsEntitiesDictionary);
+            }
+
+            xml.Add(xmlEntitiesArray);
+            xml.Save(fichDestino);
+        }
+
+        /// <summary>
+        /// Convierte en casos muy excepcionales los nombres de la tabla inverseFK en los nombres dados en los XMLs originales de OTA Bilbao
+        /// Así, si por ejemplo la tabla inverseFK es UNITS_STATUS y el campo en la tabla se llama UNST_GRPT_ID, el nombre que se usa en vez de 'UnitsStatus' es 'UnitsStatusesByUnstGrpt'
+        /// </summary>
+        /// <param name="t">tabla</param>
+        /// <param name="inversefks">referencia</param>
+        /// <returns></returns>
+        public static string excepcionesDeNombresInexplicables(EntitySet t, ReferentialConstraint inversefks)
+        {
+            string strField = convertString(inversefks.ToRole.Name);
+            if ((t.Name == "GROUPS_TYPES") && (inversefks.ToRole.Name == "UNITS_STATUS") && (inversefks.ToProperties.FirstOrDefault().Name == "UNST_GRPT_ID")) strField = "UnitsStatusesByUnstGrpt";
+            if ((t.Name == "GROUPS") && (inversefks.ToRole.Name == "GROUPS_HIERARCHY") && (inversefks.ToProperties.FirstOrDefault().Name == "GRHI_GRP_ID")) strField = "GroupsHierarchiesByGrhiGrp";
+            if ((t.Name == "GROUPS") && (inversefks.ToRole.Name == "GROUPS_HIERARCHY") && (inversefks.ToProperties.FirstOrDefault().Name == "GRHI_GRP_ID_PARENT")) strField = "GroupsHierarchiesByGrhiGrpIdParent";
+            if ((t.Name == "GROUPS") && (inversefks.ToRole.Name == "UNITS_GROUPS") && (inversefks.ToProperties.FirstOrDefault().Name == "UNGR_GRP_ID")) strField = "UnitsGroupsByUngrGrp";
+            if ((t.Name == "UNITS") && (inversefks.ToRole.Name == "UNITS_GROUPS") && (inversefks.ToProperties.FirstOrDefault().Name == "UNGR_UNI_ID")) strField = "UnitsGroupsByUngrUni";
+            if ((t.Name == "UNIT_LITERALS") && (inversefks.ToRole.Name == "UNIT_LITERALS1") && (inversefks.ToProperties.FirstOrDefault().Name == "ULT_PARENT_ULT_ID")) strField = "UnitLiterals";
+            if ((t.Name == "UNIT_SETTINGS") && (inversefks.ToRole.Name == "UNIT_SETTINGS1") && (inversefks.ToProperties.FirstOrDefault().Name == "UST_PARENT_USET_ID")) strField = "UnitSettings";
+            if ((t.Name == "RATE_BEHAVIOR_SETS") && (inversefks.ToRole.Name == "RATE_BEHAVIOR_STEP") && (inversefks.ToProperties.FirstOrDefault().Name == "RBSS_RBS_ID")) strField = "RateBehaviorSteps";
+            if ((t.Name == "DAY_TYPES") && (inversefks.ToRole.Name == "RATE_BEHAVIOR_STEP") && (inversefks.ToProperties.FirstOrDefault().Name == "RBSS_DAT_ID")) strField = "RateBehaviorSteps";
+            if ((t.Name == "RATE_TYPES") && (inversefks.ToRole.Name == "RATE_BEHAVIOR_STEP") && (inversefks.ToProperties.FirstOrDefault().Name == "RBSS_RAT_ID")) strField = "RateBehaviorSteps";
+            if ((t.Name == "DAY_EXCEPTIONS") && (inversefks.ToRole.Name == "RATE_BEHAVIOR_STEP") && (inversefks.ToProperties.FirstOrDefault().Name == "RBSS_DEX_ID")) strField = "RateBehaviorSteps";
+            if ((t.Name == "DAY_HOURS_INTERVALS") && (inversefks.ToRole.Name == "RATE_BEHAVIOR_STEP") && (inversefks.ToProperties.FirstOrDefault().Name == "RBSS_DAH")) strField = "RateBehaviorSteps";
+            XElement xmlField = new XElement("Field", strField);
+            return strField;
         }
 
         /// <summary>
@@ -141,7 +371,7 @@ namespace ConsoleGeneraXML
         {
             List<string> tablas = new List<string>() { "RATE_BEHAVIOR_SETS", "TICKET_TYPES", "TICKETS_TYPES_FEATURES", "RATE_STEPS", "TARIFF_CONSTRAINT_ENTRIES", "TARIFFS_DEFINITION_RULES",
                 "DAY_TYPES", "RATE_TYPES", "RATE_BEHAVIOR_STEP", "DAY_EXCEPTIONS", "TARIFF_CONSTRAINTS_SETS", "TARIFFS", "TARIFFS_APPLICATION_RULES", "DAY_HOURS_INTERVALS" };
-            List<string> nombresTablas = new List<string>() { "RateBehaviorSet", "RateBehaviorSet", "TicketsTypesFeature", "RateStep", "TariffConstraintEntry", "TariffsDefinitionRule",
+            List<string> nombresTablas = new List<string>() { "RateBehaviorSet", "TicketType", "TicketsTypesFeature", "RateStep", "TariffConstraintEntry", "TariffsDefinitionRule",
                 "DayType", "RateType", "RateBehaviorStep", "DayException", "TariffConstraintsSet", "Tariff", "TariffsApplicationRule", "DayHoursInterval" };
             XElement xml = new XElement("XmlDatabase",
                 new XAttribute(XNamespace.Xmlns + "xsd", "http://www.w3.org/2001/XMLSchema"),
