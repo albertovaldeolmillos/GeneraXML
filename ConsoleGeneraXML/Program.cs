@@ -154,7 +154,6 @@ namespace ConsoleGeneraXML
                         var nameInverseFK = inversefks.ToRole.Name;
                         var valueInverseFK = "";
                         
-
                         if (dbMemberEntryType.Namespace == "System.Data.Entity.DynamicProxies")
                         {
                             //var xx = entry.Reference(inversefks.ToRole.Name).CurrentValue;
